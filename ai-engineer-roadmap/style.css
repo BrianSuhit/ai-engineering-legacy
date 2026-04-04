@@ -1,0 +1,223 @@
+/* Colores Gunmetal */
+:root {
+    --bg: #181a1e;
+    --text: #dddddd;
+    --card-bg: #202226;
+    --accent: #FFEE8C;
+    --green: #FFEE8C;  /* Completado */
+    --font-stack: 'Geist Mono', monospace;
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-bold: 700;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-stack);
+    margin: 0; padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem; /* Un poco menos de margen */
+    display: flex;       /* Flexbox para asegurar centrado absoluto */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+header h1 {
+    font-size: 2.5rem; /* Ajusta tamaño si quieres */
+    letter-spacing: -1px;
+}
+
+.warning-banner {
+    background: rgba(255, 193, 7, 0.1);
+    border: 1px solid #ffc107;
+    color: #ffc107;
+    padding: 1rem;
+    margin: 2rem 0;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.roadmap-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* LA GRILLA DE 3 COLUMNAS */
+.roadmap-row {
+    display: grid;
+    /* 1fr (espacio libre) - 300px (Tronco fijo) - 1fr (espacio libre) */
+    grid-template-columns: 1fr 300px 1fr; 
+    gap: 2rem;
+    align-items: center; /* Centrar verticalmente */
+    min-height: 150px;
+}
+
+/* ESTILOS DE LAS CAJAS */
+.main-node {
+    background: var(--card-bg);
+    border: 2px solid #444;
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 8px;
+    position: relative;
+    z-index: 2; /* Para tapar la línea conectora */
+}
+
+.main-node.completed { border-color: var(--green); }
+.main-node.pending { border-color: #666; opacity: 0.7; }
+
+/* LINEA CONECTORA VERTICAL (El Tronco) */
+.col-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: 100%;
+}
+
+.connector-line {
+    width: 2px;
+    background: #444;
+    flex-grow: 1; /* Ocupa todo el espacio vertical disponible */
+    min-height: 2rem;
+}
+
+/* Contenedor Columna Derecha */
+.col-subnodes {
+    display: inline-flex;    /* Para que el contenedor se ajuste al contenido más ancho */
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;    /* Para que todos los hijos tengan el mismo ancho */
+    padding-left: 2rem;      /* Separación del tronco */
+    min-width: 250px;        /* Un ancho mínimo para todo el grupo */
+    max-width: 300px;        /* <--- ESTA ES LA PROPIEDAD a modificar */
+}
+
+/* El globito (Subnodo) */
+.subnode {
+    background: rgba(255,255,255,0.05);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+    
+    /* ESTO ES LO IMPORTANTE: Que mida lo que mide el texto */
+    box-sizing: border-box;  /* Para que padding no afecte el ancho total */
+    width: auto;             /* Ancho automático */
+    min-width: 200px;        /* Un mínimo para que no queden enanos */
+    max-width: 100%;         /* Un máximo para que no se estiren más que el contenedor */
+    text-align: center;      /* Texto centrado si es corto */
+    word-wrap: break-word;   /* Ajuste de palabras largas */
+    white-space: normal;     /* El texto fluye normalmente */
+}
+
+.subnode-group {
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center; /* Centrar los subnodos hijos */
+    
+    /* Mismo comportamiento: Ajustarse pero con mínimo */
+    width: auto;
+    min-width: 200px; 
+    background: rgba(0,0,0,0.2);
+}
+
+/* Para que los hijos del grupo se estiren AL ANCHO DEL GRUPO */
+.subnode-group .subnode {
+    width: 100%; /* Llenar el ancho del grupo padre */
+}
+
+.subnode:hover {
+    border-color: var(--accent);
+    background: rgba(255,255,255,0.08);
+}
+
+.group-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.3rem;
+    display: block;      /* Para que ocupe el ancho y se pueda centrar */
+    text-align: center;  /* <--- CLAVE: Título centrado */
+    width: 100%;
+}
+
+/* PROYECTO (Lado Izquierdo) */
+.col-project {
+    display: flex;
+    justify-content: flex-end; /* Pegado al centro */
+}
+
+.project-card {
+    border: 1px dashed var(--accent);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: right;
+    cursor: pointer;
+}
+
+.modal-overlay {
+    position: fixed; /* <--- ESTO ES LA CLAVE */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* Fondo oscuro transparente */
+    display: flex; /* Para centrar el contenido */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Para que esté siempre encima de todo */
+    backdrop-filter: blur(5px); /* Efecto borroso pro */
+}
+
+.modal-content {
+    background: var(--bg-core);
+    border: 1px solid var(--accent);
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0 0 30px rgba(74, 144, 226, 0.2);
+}
+
+.modal-content button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    color: var(--text-primary);
+}
+
+/* Estilo para el código dentro del modal */
+.modal-content code {
+    background: #222; /* Un fondo gris oscuro, menos intenso que el negro */
+    /* color: #f39c12; */ /* Opcional: color naranja para el texto */
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}

@@ -1,0 +1,11 @@
+epoca,modelo,precision,perdida
+1,Modelo_Viejo,15,0.90
+2,Modelo_Viejo,25,0.80
+3,Modelo_Viejo,35,0.70
+4,Modelo_Viejo,45,0.60
+5,Modelo_Viejo,50,0.55
+1,Modelo_Nuevo,20,0.85
+2,Modelo_Nuevo,40,0.60
+3,Modelo_Nuevo,65,0.40
+4,Modelo_Nuevo,80,0.25
+5,Modelo_Nuevo,92,0.10

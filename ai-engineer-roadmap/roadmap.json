@@ -1,0 +1,482 @@
+{
+    "__comment_NODO_1__": "--- INTRODUCCION ---",
+    "what-is-ai-engineer": {
+        "title": "what is an Ai Engineer?",
+        "body": "<p>Un AI Engineer utiliza modelos preentrenados (foundation models) y herramientas de IA existentes para mejorar experiencias de usuario y resolver problemas prácticos. A diferencia de los investigadores, su foco no es construir modelos desde cero, sino aplicar la IA mediante técnicas como prompt engineering, construcción de contexto y evaluación de sistemas para integrar estas capacidades en aplicaciones reales.</p>"
+    },
+    "roles-responsibilities": {
+        "title": "Roles and Responsibilities",
+        "body": "<p>Sus responsabilidades principales se alejan del entrenamiento tradicional de modelos y se centran en la adaptación y aplicación. Esto incluye el desarrollo de la aplicación (diseño de interfaces de IA, prompt engineering), la construcción de contexto (como sistemas RAG), la evaluación rigurosa de los resultados del modelo y la optimización de la inferencia para reducir latencia y costos. También gestionan la ingeniería de datasets para adaptar modelos a tareas específicas.</p>"
+    },
+    "impact-product-dev": {
+        "title": "Impact on Product Development",
+        "body": "<p>Los modelos fundacionales reducen drásticamente la barrera de entrada para construir aplicaciones de IA, permitiendo iteraciones rápidas. Esto habilita un nuevo flujo de trabajo: en lugar de empezar recopilando datos y entrenando un modelo (costoso y lento), se puede construir el producto primero usando modelos existentes y, si tiene éxito, invertir luego en datos propios y optimización. Esto acelera significativamente el tiempo de lanzamiento al mercado.</p>"
+    },
+    "ai-vs-ml-engineer": {
+        "title": "AI Engineer vs ML Engineer",
+        "body": "<p>La diferencia clave radica en el enfoque: el ML Engineer tradicional se centra en seleccionar arquitecturas, recolectar datos y entrenar modelos desde cero (requiriendo profundo conocimiento matemático y de algoritmos). El AI Engineer se enfoca en adaptar modelos gigantes ya entrenados (como GPT-4 o Llama) mediante prompts, orquestación y finetuning, priorizando la integración del modelo en un producto funcional sobre la creación del modelo en sí.</p>"
+    },
+    "ai-vs-agi": {
+        "title": "AI vs AGI",
+        "body": "<p>La IA actual (incluyendo LLMs) es potente y generalista, pero carece de razonamiento profundo; realiza tareas basándose en patrones aprendidos de datos existentes. La AGI (Artificial General Intelligence) es un concepto futuro que refiere a una IA capaz de igualar o superar la cognición humana, asimilar conocimientos, razonar y resolver problemas novedosos en cualquier dominio de forma autónoma. Hoy existe un compromiso entre generalidad y potencia, pero aún no hemos alcanzado la AGI.</p>"
+    },
+    "llms": {
+        "title": "LLMs",
+        "body": "<p>Sigla de Large Language Models. Son redes neuronales basadas en la arquitectura Transformer entrenadas con volúmenes masivos de texto para predecir el siguiente token (palabra o fragmento). A través de este entrenamiento, adquieren la capacidad de entender, generar y \"razonar\" con el lenguaje humano, permitiéndoles realizar múltiples tareas (resumir, traducir, programar) sin haber sido programados explícitamente para cada una de ellas.</p>"
+    },
+    "inference": {
+        "title": "Inference",
+        "body": "<p>Es el proceso de ejecutar un modelo ya entrenado para procesar una entrada (prompt) y generar una salida (completion). En producción, implica gestionar cuellos de botella computacionales. Se divide en dos etapas: prefill (procesar el prompt inicial, intensivo en cálculo) y decode (generar la respuesta token por token de manera secuencial, limitado por el ancho de banda de la memoria).</p>"
+    },
+    "training": {
+        "title": "Training",
+        "body": "<p>Es el proceso de enseñanza del modelo. Para un LLM, consta de etapas:<br>1. Pre-entrenamiento: El modelo aprende la estructura del lenguaje de corpus masivos (extremadamente costoso).<br>2. Finetuning supervisado (SFT): Se entrena con ejemplos de instrucción-respuesta para que aprenda a seguir órdenes.<br>3. Finetuning de preferencia: Se alinea el modelo con el feedback humano (ej. RLHF) para que las respuestas sean útiles y seguras.</p>"
+    },
+    "embeddings": {
+        "title": "Embeddings",
+        "body": "<p>Son representaciones numéricas (listas de números o vectores) de datos como texto o imágenes. Su función es capturar el significado semántico: dos conceptos similares tendrán vectores que están \"cerca\" matemáticamente en el espacio vectorial. Son la pieza fundamental para que las computadoras entiendan la relación entre palabras y documentos, habilitando la búsqueda semántica.</p>"
+    },
+    "vector-database": {
+        "title": "Vector Database",
+        "body": "<p>Es una base de datos diseñada específicamente para almacenar, indexar y consultar embeddings (vectores). Actúa como la memoria a largo plazo para las aplicaciones de IA. Permite realizar búsquedas de similitud extremadamente rápidas (búsqueda de vecino más cercano) para encontrar la información más relevante para una consulta de usuario, siendo un componente crítico en sistemas RAG.</p>"
+    },
+    "ai-agents": {
+        "title": "Ai Agents",
+        "body": "<p>Un agente es un sistema autónomo donde el LLM actúa como el \"cerebro\". A diferencia de un chat pasivo que solo responde, un agente percibe su entorno, razona sobre un problema, planifica una secuencia de acciones y utiliza herramientas externas (como buscadores web o calculadoras) para lograr un objetivo. Puede corregirse a sí mismo y ejecutar tareas de varios pasos.</p>"
+    },
+    "rag": {
+        "title": "RAG",
+        "body": "<p>Siglas de Retrieval-Augmented Generation (Generación Aumentada por Recuperación). Es una técnica para dar al LLM acceso a datos que no vio durante su entrenamiento (como datos privados o noticias recientes). Funciona recuperando información relevante de una base de datos externa e inyectándola en el prompt como contexto antes de que el modelo genere la respuesta, mejorando la precisión y reduciendo alucinaciones.</p>"
+    },
+    "prompt-engineering": {
+        "title": "Prompt Engineering",
+        "body": "<p>Es el arte y la ciencia de diseñar las instrucciones (prompts) que se envían al modelo para obtener el resultado deseado. Va más allá de escribir una pregunta; implica estructurar la comunicación entre el usuario y el modelo, proporcionar ejemplos (few-shot), definir roles y formatos, y guiar el \"razonamiento\" del modelo para resolver tareas complejas de forma consistente.</p>"
+    },
+    "__comment_NODO_2__": "--- PRE-TRAINED MODELS ---",
+    "benefits-of-pre-trained-models": {
+        "title": "Benefits of Pre-trained Models",
+        "body": "<p>El beneficio principal radica en el Transfer Learning (aprendizaje por transferencia). Estos modelos ya han \"leído\" internet para aprender la estructura del lenguaje y conocimientos generales, permitiendo transferir ese conocimiento a tareas específicas,.</p><ul><li>Eficiencia de Muestras y Cómputo: Entrenar un modelo desde cero requiere datasets masivos y meses de cómputo. Los modelos preentrenados permiten obtener resultados de alto rendimiento (SOTA) en tareas específicas (como clasificación legal o análisis de sentimientos) usando muy pocos ejemplos (few-shot) o datasets pequeños para finetuning,.</li><li>Generalización: A diferencia de los modelos tradicionales de ML diseñados para una sola tarea, un modelo fundacional preentrenado es polivalente; puede resumir, traducir y escribir código \"out-of-the-box\" debido a la diversidad de sus datos de entrenamiento,.</li></ul>"
+    },
+    "limitations-and-considerations": {
+        "title": "Limitations and Considerations",
+        "body": "<p>Aunque poderosos, estos modelos no son bases de conocimiento fácticas ni herramientas deterministas.</p><ul><li>Naturaleza Probabilística y Alucinaciones: Los modelos no \"saben\" la verdad; simplemente predicen la siguiente palabra más probable. Esto lleva a alucinaciones (inventar hechos con confianza) e inconsistencia (dar respuestas diferentes a la misma pregunta),.</li><li>Conocimiento Estático: El modelo está \"congelado\" en el tiempo. No sabe qué pasó después de su fecha de corte de entrenamiento ni tiene acceso a datos privados o corporativos a menos que se inyecten mediante RAG,.</li><li>Sesgo y Seguridad: Al entrenarse con datos de internet sin filtrar, heredan estereotipos, sesgos raciales/género y pueden generar contenido tóxico si no se alinean (post-training) correctamente,.</li><li>Caja Negra: A menudo desconocemos los datos exactos de entrenamiento, lo que dificulta saber por qué el modelo falla en ciertos dominios o si está infringiendo derechos de autor,.</li></ul>"
+    },
+    "google-models": {
+        "title": "Google Models",
+        "body": "<p>Google ofrece una suite de modelos fundacionales, siendo Gemini su modelo insignia actual. Gemini es multimodal de forma nativa (entiende texto, imágenes, audio y video) y viene en diferentes tamaños y capacidades: Pro (balanceado para escalar), Flash (optimizado para baja latencia y costo) y Ultra (para tareas altamente complejas),. Además, Google desarrolla modelos abiertos llamados Gemma (basados en la misma investigación que Gemini pero más ligeros para uso local) y modelos especializados como Imagen (generación y edición visual), Veo (generación de video) y Lyria (generación de música),. Estos modelos se acceden principalmente a través de Vertex AI Model Garden.</p>"
+    },
+    "capabilities-context-length": {
+        "title": "Capabilities / Context Length",
+        "body": "<p>El context length (ventana de contexto) define la cantidad máxima de información (medida en tokens) que un modelo puede procesar en una sola interacción, incluyendo tanto la entrada (prompt) como la salida generada,.</p><ul><li>Evolución: La capacidad ha crecido exponencialmente, pasando de 1K tokens en modelos antiguos a ventanas masivas de 1M o 2M+ en modelos de frontera actuales, permitiendo procesar libros enteros o grandes bases de código en una sola consulta,.</li><li>Limitaciones: Un contexto más largo no siempre implica mejor comprensión. Existe el fenómeno \"Lost in the Middle\", donde los modelos tienden a olvidar o alucinar información que se encuentra en la mitad de un prompt muy largo, priorizando lo que está al principio o al final,. Además, a mayor contexto, mayor es la latencia y el costo computacional,.</li></ul>"
+    },
+    "cut-off-dates-knowledge": {
+        "title": "Cut-off Dates / Knowledge",
+        "body": "<p>Los LLMs tienen un conocimiento estático que se detiene en su fecha de corte (cut-off date), el momento en que finalizó su entrenamiento. El modelo \"congeló\" su conocimiento del mundo en ese punto,.</p><ul><li>Implicaciones: Un modelo no sabe qué pasó después de su fecha de corte (por ejemplo, quién ganó el último mundial o el precio actual de una acción) a menos que se le proporcione esa información externamente,.</li><li>Alucinaciones: Si se le pregunta por eventos posteriores a su fecha de corte sin herramientas externas, el modelo puede inventar respuestas plausibles pero falsas o negarse a responder,.</li><li>Solución: Para mitigar esto, no se reentrena el modelo constantemente (lo cual es inviable), sino que se utilizan herramientas como RAG (Retrieval-Augmented Generation) o acceso a la web para inyectar información fresca en el contexto,.</li></ul>"
+    },
+    "anthropics-claude": {
+        "title": "Anthropic's Claude",
+        "body": "<p>Una familia de LLMs desarrollados por Anthropic con un fuerte enfoque en la seguridad y la alineación con los valores humanos (conocido como alineación HHH: Helpful, Honest, Harmless). Sus modelos actuales (como Claude 3 y 3.5 Sonnet) destacan por tener ventanas de contexto masivas (200K+ tokens), lo que les permite procesar libros enteros o grandes bases de código en un solo prompt,. Se diferencian por ofrecer capacidades de \"Artifacts\" para generar contenido estructurado y autónomo en la interfaz de usuario.</p>"
+    },
+    "openai-gpt": {
+        "title": "OpenAi GPT",
+        "body": "<p>La serie Generative Pre-trained Transformer (GPT) de OpenAI impulsó la revolución actual de la IA. Comenzando como modelos de completado de texto, evolucionaron mediante Reinforcement Learning from Human Feedback (RLHF) hacia modelos de chat instruccionales (como GPT-3.5 y GPT-4),. GPT-4 es un modelo multimodal de gran escala (se rumorea que es una mezcla de expertos o MoE) que domina benchmarks en razonamiento, codificación y conocimientos generales, accesible principalmente vía API,.</p>"
+    },
+    "azure-ai": {
+        "title": "Azure Ai",
+        "body": "<p>Es la plataforma en la nube de Microsoft que ofrece acceso empresarial a modelos fundacionales. Su característica distintiva es la asociación exclusiva para alojar los modelos de OpenAI (como GPT-4), permitiendo a las empresas usarlos dentro de sus redes privadas con cumplimiento de normativas de seguridad y privacidad,. Además, ofrece servicios de traducción y herramientas de seguridad de contenido para filtrar outputs dañinos,.</p>"
+    },
+    "aws-sagemaker": {
+        "title": "AWS SageMaker",
+        "body": "<p>Es el servicio de machine learning completamente gestionado de Amazon. En el contexto de la ingeniería de IA, actúa como una plataforma agnóstica que permite alojar y desplegar modelos de código abierto (como Llama o Mistral) o propietarios a través de SageMaker JumpStart. Proporciona la infraestructura subyacente para entrenar, ajustar (finetune) y servir modelos a escala sin tener que gestionar servidores físicos.</p>"
+    },
+    "hugging-face-models": {
+        "title": "Hugging Face Models",
+        "body": "<p>Hugging Face es el \"hub\" central del ecosistema de IA de código abierto, alojando más de 800,000 modelos. No es un modelo en sí, sino la plataforma donde se comparten y descargan modelos abiertos (open weights) como Llama, BERT o Whisper. Su librería transformers es el estándar de la industria para cargar y utilizar estos modelos en código. También mantiene el Open LLM Leaderboard, una referencia clave para comparar el rendimiento de modelos abiertos en benchmarks públicos,.</p>"
+    },
+    "mistral-ai": {
+        "title": "Mistral AI",
+        "body": "<p>Una compañía francesa que se especializa en modelos abiertos de alta eficiencia. Sus modelos, como Mistral 7B y Mixtral 8x7B, utilizan arquitecturas avanzadas como Mixture of Experts (MoE) para superar en rendimiento a modelos mucho más grandes (como Llama 2 70B) utilizando menos recursos computacionales,. Ofrecen una alternativa potente y eficiente que se puede ejecutar localmente o desplegar en la nube.</p>"
+    },
+    "cohere": {
+        "title": "Cohere",
+        "body": "<p>Una empresa centrada en IA para el entorno empresarial (Enterprise AI). A diferencia de los modelos de chat generalistas, Cohere se especializa en modelos optimizados para tareas de NLP comercial como Rerank (reordenamiento de resultados de búsqueda) y Embed (generación de embeddings para búsqueda semántica),. Su modelo generativo, Command R+, está diseñado específicamente para sobresalir en tareas de RAG (Retrieval-Augmented Generation) y uso de herramientas, citando fuentes para reducir alucinaciones,.</p>"
+    },
+    "replicate": {
+        "title": "Replicate",
+        "body": "<p>Replicate AI es una plataforma en la nube diseñada para que desarrolladores e ingenieros puedan ejecutar, ajustar (fine-tune) y desplegar modelos de inteligencia artificial mediante una API, sin tener que preocuparse por gestionar servidores ni infraestructuras complejas.</p>"
+    },
+    "pre-trained-sentiment": {
+        "title": "pre-trained-sentiment",
+        "body": "<p>Implementación de un modelo de Deep Learning ya entrenado (Hugging Face) para detectar emociones en texto de forma automática. <br><br><a href=\"https://github.com/BrianSuhit/ai-engineering/tree/main/01-pretrained-sentiment\" target=\"_blank\"><strong style=\"color: #FFEE8C;\">link al proyecto</strong></a></p>"
+    },
+    "__comment_NODO_3__": "--- GOOGLE API ---",
+    "chat-completions-api": {
+        "title": "Chat Completions API",
+        "body": "<p>Es el estándar moderno para interactuar con modelos de lenguaje. A diferencia de las antiguas APIs de \"completar texto\" (que solo seguían una frase), este formato estructura la entrada como una lista de mensajes con roles específicos: system (define el comportamiento), user (la pregunta del usuario) y assistant (la respuesta del modelo). Esta estructura permite gestionar el historial de conversación y mantener el contexto en aplicaciones de chat.</p>"
+    },
+    "writing-prompts": {
+        "title": "Writing Prompts",
+        "body": "<p>Es el proceso de diseñar las entradas de texto para guiar al modelo hacia el resultado deseado. Un prompt efectivo generalmente contiene instrucciones claras, contexto relevante, ejemplos (few-shot) y, a veces, una estructura de formato de salida deseada (como JSON o Markdown). La calidad del prompt es el factor más determinante en el rendimiento del modelo sin necesidad de reentrenarlo.</p>"
+    },
+    "maximum-tokens": {
+        "title": "Maximum Tokens",
+        "body": "<p>Se refiere al límite máximo de información que un modelo puede procesar en una sola solicitud, conocido como \"ventana de contexto\". Este límite incluye la suma de los tokens del prompt (entrada) más los tokens de la completion (salida). Si la conversación excede este número, el modelo \"olvida\" la parte más antigua o corta la respuesta, lo que obliga a usar estrategias como resumir historiales o usar bases de datos vectoriales.</p>"
+    },
+    "token-counting": {
+        "title": "Token Counting",
+        "body": "<p>Los modelos no leen palabras o caracteres, sino \"tokens\" (fragmentos de texto que pueden ser palabras enteras o partes de ellas). El conteo de tokens es crítico por dos razones: técnica, para no exceder la ventana de contexto del modelo; y económica, ya que la mayoría de las APIs cobran por la cantidad de tokens procesados (tanto de entrada como de salida).</p>"
+    },
+    "pricing-considerations": {
+        "title": "Pricing Considerations",
+        "body": "<p>El costo de usar modelos fundacionales vía API suele basarse en un esquema de \"pago por uso\" medido en millones de tokens. Generalmente, los tokens de salida (generación) son más caros que los de entrada (lectura). Además del volumen, el precio varía drásticamente según el tamaño del modelo (modelos \"inteligentes\" vs. modelos \"rápidos\") y, en algunos casos, se cobra extra por el entrenamiento (fine-tuning) o el alojamiento de modelos dedicados.</p>"
+    },
+    "google-ai-studio": {
+        "title": "Google AI Studio",
+        "body": "<p>Es la herramienta de desarrollo específica de Google diseñada para prototipar rápidamente con modelos Gemini. Permite a los desarrolladores experimentar con prompts, ajustar parámetros de temperatura y seguridad, y probar entradas multimodales (texto, imágenes, video) en una interfaz web antes de escribir código. Facilita la exportación directa del prompt configurado a código (Python, JS) para su implementación.</p>"
+    },
+    "fine-tuning": {
+        "title": "Fine-tuning",
+        "body": "<p>Es el proceso de tomar un modelo preentrenado (que ya sabe hablar y razonar en general) y entrenarlo adicionalmente con un dataset más pequeño y específico de tu dominio. Esto sirve para adaptar el estilo, el tono o el formato de respuesta del modelo, o para enseñarle conocimientos muy específicos que no aprendió en su entrenamiento general, mejorando su rendimiento en tareas concretas.</p>"
+    },
+    "3-prompt-engineering": {
+        "title": "Prompt Engineering",
+        "body": "<p>Es la disciplina iterativa de optimizar los prompts para obtener respuestas precisas, consistentes y útiles. Va más allá de escribir una simple instrucción; implica técnicas avanzadas como Chain-of-Thought (pedirle al modelo que razone paso a paso), Few-Shot Prompting (dar ejemplos) y la estructuración sistemática del contexto para minimizar alucinaciones y mejorar la calidad de la salida.</p>"
+    },
+    "ai-resume-critiquer": {
+        "title": "AI Resume Critiquer",
+        "body": "<p>Implementación de critico de pdf, en este caso un cv, utilizando la API de Google para conectarse con el modelo Gemini 3 Flash. <br><br><a href=\"https://github.com/BrianSuhit/02-ai-resume-critiquer\" target=\"_blank\"><strong style=\"color: #FFEE8C;\">link al proyecto</strong></a></p>"
+    },
+    "__comment_NODO_4__": "--- OPEN SOURCE AI ---",
+    "open-vs-closed-source-models": {
+        "title": "Open vs Closed Source Models",
+        "body": "<p>La distinción principal radica en el acceso a los pesos y la arquitectura.</p><ul><li><strong>Modelos Cerrados (Proprietary):</strong> Como GPT-4 o Gemini, sus pesos son secretos. Se accede a ellos solo vía API, lo que facilita su uso (el proveedor gestiona la infraestructura) y suelen ser los más potentes, pero presentan riesgos de privacidad (envío de datos a terceros), costos por token y falta de control sobre cambios en el modelo.</li><li><strong>Modelos Abiertos (Open Weights):</strong> Como Llama o Mistral, comparten sus pesos públicamente. Permiten ejecución local (privacidad total de datos), personalización profunda (<em>fine-tuning</em>) y control absoluto, pero requieren que el usuario gestione el hardware (GPUs) y la infraestructura de inferencia.</li></ul>"
+    },
+    "popular-open-source-models": {
+        "title": "Popular Open Source Models",
+        "body": "<p>El ecosistema de modelos abiertos ofrece alternativas competitivas a los modelos cerrados, organizados por familias y tamaños:</p><ul><li><strong>Llama (Meta):</strong> El estándar actual, con versiones como Llama 2 y 3 en varios tamaños (8B, 70B, 405B) optimizados para chat y código.</li><li><strong>Mistral & Mixtral (Mistral AI):</strong> Modelos eficientes, destacando <em>Mixtral 8x7B</em> que usa arquitectura <em>Mixture of Experts</em> (MoE) para alto rendimiento con menor costo computacional.</li><li><strong>Gemma (Google) & Phi (Microsoft):</strong> Modelos \"pequeños\" pero potentes (SLMs), ideales para ejecución en dispositivos locales o móviles.</li><li><strong>Qwen & DeepSeek:</strong> Modelos fuertes en razonamiento y codificación.</li></ul>"
+    },
+    "hugging-face-tasks": {
+        "title": "Hugging Face Tasks",
+        "body": "<p>Hugging Face organiza los modelos según la \"tarea\" que resuelven, estandarizando las entradas y salidas. Esto permite usar la abstracción <code>pipeline()</code> para intercambiar modelos fácilmente sin reescribir código. Las tareas comunes para un AI Engineer incluyen:</p><ul><li><strong>Text Generation:</strong> Generación de texto autoregresiva (ej. GPT-2, Llama).</li><li><strong>Text-to-Text Generation:</strong> Modelos secuencia-a-secuencia (ej. T5, Flan) para traducción o resumen.</li><li><strong>Text Classification:</strong> Análisis de sentimiento o clasificación de intentos.</li><li><strong>Token Classification:</strong> Reconocimiento de entidades nombradas (NER).</li></ul>"
+    },
+    "hugging-face-hub": {
+        "title": "Hugging Face Hub",
+        "body": "<p>Es la plataforma central (\"el GitHub del ML\") que aloja más de 800,000 modelos, datasets y demos (<em>Spaces</em>). Sirve como el repositorio principal donde la comunidad comparte modelos preentrenados y sus <em>tokenizers</em> asociados. Facilita la descarga, versionado y descubrimiento de modelos, siendo el punto de partida estándar para buscar cualquier modelo abierto (como Llama 3 o BERT) y sus tarjetas de modelo (<em>model cards</em>) con documentación técnica.</p>"
+    },
+    "inference-sdk": {
+        "title": "Inference SDK",
+        "body": "<p>Se refiere a las herramientas que permiten consumir modelos alojados en el Hub sin necesidad de descargarlos ni ejecutarlos en hardware local. A través de la <em>Inference API</em> de Hugging Face (y su cliente en Python/JS), los desarrolladores pueden enviar <em>prompts</em> a modelos masivos alojados en la nube de Hugging Face y recibir respuestas instantáneas, ideal para prototipado rápido y aplicaciones ligeras que no quieren gestionar GPUs.</p>"
+    },
+    "transformers-js": {
+        "title": "Transformers.js",
+        "body": "<p>Es una librería que permite ejecutar modelos Transformers directamente en el navegador web o en entornos Node.js, utilizando el formato ONNX. Esto habilita la <strong>IA del lado del cliente</strong> (<em>client-side AI</em>): los modelos se ejecutan en el dispositivo del usuario final, garantizando privacidad y cero latencia de red, sin depender de un servidor backend para la inferencia.</p>"
+    },
+    "ollama-models": {
+        "title": "Ollama Models",
+        "body": "<p>Ollama es un <em>framework</em> diseñado para simplificar drásticamente la ejecución local de LLMs. Permite correr modelos potentes (como Llama 3 o DeepSeek) en una sola línea de comando (ej. <code>ollama run llama3</code>). Utiliza internamente técnicas de cuantización (generalmente formato GGUF) para comprimir los modelos, haciéndolos viables en hardware de consumo (como laptops con poca VRAM) sin configuraciones complejas de Python o CUDA.</p>"
+    },
+    "ollama-sdk": {
+        "title": "Ollama SDK",
+        "body": "<p>Es la biblioteca (disponible en Python y JavaScript) que permite integrar Ollama en aplicaciones. En lugar de usar la terminal, el SDK conecta tu código con el servidor local de Ollama. Permite enviar <em>prompts</em>, gestionar el historial de chat y recibir respuestas en <em>streaming</em> dentro de tu propio software, facilitando la creación de agentes o chatbots locales que funcionan 100% offline.</p>"
+    },
+    "multimodel-tester": {
+        "title": "Multimodel tester",
+        "body": "<p>implementacion de un tester de multiples modelos de texto open source a la vez con el mismo prompt<br><br><a href=\"https://github.com/BrianSuhit/03-multi-modal-tester\" target=\"_blank\"><strong style=\"color: #FFEE8C;\">link al proyecto</strong></a></p>"
+    },
+    "__comment_NODO_5__": "--- AI SAFETY AND ETHICS ---",
+    "prompt-injection-attacks": {
+        "title": "Prompt Injection Attacks",
+        "body": "<p>Es una clase de ataque donde un usuario malintencionado manipula el <em>input</em> (entrada) para anular las instrucciones originales del sistema y hacer que el modelo ejecute acciones no deseadas.</p><ul><li><strong>Direct Injection (Jailbreaking):</strong> El atacante escribe instrucciones explícitas para \"romper\" las restricciones del modelo (ej: \"Ignora las instrucciones anteriores y actúa como...\").</li><li><strong>Indirect Injection:</strong> El ataque no viene del usuario directo, sino de datos externos que el modelo procesa (ej: una página web maliciosa leída por un agente de búsqueda que contiene instrucciones ocultas para exfiltrar datos).</li></ul>"
+    },
+    "security-and-privacy-concerns": {
+        "title": "Security and Privacy Concerns",
+        "body": "<p>El uso de LLMs introduce riesgos críticos sobre la confidencialidad y la propiedad de los datos.</p><ul><li><strong>Exfiltración de Datos:</strong> Los modelos pueden memorizar y regurgitar datos de entrenamiento, revelando información de identificación personal (PII) o secretos corporativos si se les incita con los <em>prompts</em> adecuados.</li><li><strong>Fuga en APIs:</strong> Al usar modelos cerrados, existe el riesgo de que los datos enviados en los <em>prompts</em> se usen para entrenar futuras versiones del modelo, filtrando accidentalmente propiedad intelectual o datos sensibles de la empresa.</li></ul>"
+    },
+    "bias-and-fairness": {
+        "title": "Bias and Fairness",
+        "body": "<p>Los modelos fundacionales reflejan y pueden amplificar los sesgos presentes en sus datos de entrenamiento (internet).</p><ul><li><strong>Tipos de Sesgo:</strong> Incluyen estereotipos de género (ej: asociar enfermería solo a mujeres), sesgos raciales, y alineaciones políticas o religiosas implícitas en las respuestas del modelo.</li><li><strong>Mitigación:</strong> Se combate mediante la curaduría cuidadosa de datos de <em>finetuning</em> (ej: balancear ejemplos de género), el uso de <em>guardrails</em> para filtrar salidas tóxicas y técnicas de alineación como RLHF.</li></ul>"
+    },
+    "google-moderation-api": {
+        "title": "Google moderation api",
+        "body": "<p><em>(En el contexto de Vertex AI / Gemini)</em> Google proporciona herramientas integradas de <strong>Safety Settings</strong> (configuraciones de seguridad) que actúan como filtros de moderación. Permiten bloquear contenidos en categorías específicas como discurso de odio, acoso, contenido sexualmente explícito y peligrosidad. Los desarrolladores pueden ajustar los umbrales de sensibilidad (bajo, medio, alto) para determinar qué tanto filtrar antes de que la respuesta llegue al usuario. Además, herramientas como la <strong>Perspective API</strong> se utilizan para detectar toxicidad en textos.</p>"
+    },
+    "adding-end-user-ids-in-prompts": {
+        "title": "Adding end-user IDs in prompts",
+        "body": "<p>Es una práctica de seguridad que consiste en enviar un identificador único del usuario final (no solo la clave de API de la empresa) junto con la solicitud al modelo.</p><ul><li><strong>Propósito:</strong> Permite monitorear y aislar el abuso a nivel de usuario individual. Si un usuario intenta realizar ataques de inyección o viola las políticas, el sistema puede limitar o banear a ese usuario específico sin afectar el servicio para todos los demás clientes.</li></ul>"
+    },
+    "conducting-adversarial-testing": {
+        "title": "Conducting adversarial testing",
+        "body": "<p>También conocido como <strong>Red Teaming</strong>, es el proceso de evaluar proactivamente el sistema intentando \"atacarlo\" para descubrir vulnerabilidades antes del despliegue.</p><ul><li><strong>Metodología:</strong> Implica pensar como un atacante y probar el modelo con <em>prompts</em> diseñados para provocar fallos, generar contenido tóxico o filtrar datos. Se pueden usar herramientas automatizadas (como Garak o PyRIT) o equipos humanos para simular inyecciones de <em>prompt</em> y evaluar la robustez de los filtros de seguridad.</li></ul>"
+    },
+    "robust-prompt-engineering": {
+        "title": "Robust prompt engineering",
+        "body": "<p>Son técnicas de diseño de <em>prompts</em> defensivos para reducir la susceptibilidad a ataques y errores.</p><ul><li><strong>Delimitadores:</strong> Usar marcas claras (como <code>`\"\"\"`</code> o etiquetas XML) para separar las instrucciones del sistema de los datos del usuario, ayudando al modelo a distinguir qué es una orden y qué es contenido.</li><li><strong>Instrucciones Prioritarias:</strong> Colocar las instrucciones de seguridad al final del <em>prompt</em> (efecto de recencia) o repetirlas para reforzar su importancia frente a posibles inyecciones.</li><li><strong>Sandwich Defense:</strong> Rodear la entrada del usuario con instrucciones de seguridad antes y después.</li></ul>"
+    },
+    "know-your-customers-usecases": {
+        "title": "Know your Customers / Usecases",
+        "body": "<p>La seguridad no es absoluta, sino contextual. Un sistema seguro para escribir ficción puede ser peligroso para consejos médicos.</p><ul><li><strong>Evaluación de Riesgo:</strong> Se debe analizar el impacto de un fallo. ¿Es una aplicación crítica (salud, finanzas) donde una alucinación es fatal, o es recreativa? Esto define la rigurosidad de los <em>guardrails</em> necesarios.</li><li><strong>Alcance (Scoping):</strong> Definir explícitamente qué temas están \"fuera del alcance\" (ej: un bot de soporte no debe opinar sobre política) y configurar el sistema para rechazar cortésmente estas consultas.</li></ul>"
+    },
+    "constraining-outputs-and-inputs": {
+        "title": "Constraining outputs and inputs",
+        "body": "<p>El control estricto de lo que entra y sale del modelo es la línea de defensa final.</p><ul><li><strong>Guardrails de Entrada:</strong> Detectar y anonimizar información sensible (PII) o bloquear <em>prompts</em> maliciosos conocidos antes de que lleguen al modelo.</li><li><strong>Guardrails de Salida:</strong> Validar que la respuesta cumpla con formatos esperados (ej: JSON válido) y escanearla en busca de toxicidad o filtración de datos antes de mostrarla al usuario.</li><li><strong>Muestreo Restringido:</strong> Usar técnicas como gramáticas formales para forzar al modelo a elegir solo tokens permitidos (ej: solo números o clases específicas).</li></ul>"
+    },
+    "__comment_NODO_6__": "--- WHAT ARE EMBEDDINGS ---",
+    "semantic-search": {
+        "title": "Semantic Search",
+        "body": "<p>A diferencia de la búsqueda por palabras clave (<i>lexical search</i>) que busca coincidencias exactas de texto, la búsqueda semántica utiliza embeddings para recuperar información basada en el <strong>significado</strong>.</p><ul><li><strong>Funcionamiento:</strong> Tanto la consulta del usuario como los documentos se convierten en vectores (embeddings) en el mismo espacio multidimensional. El sistema recupera los documentos cuyos vectores están más \"cerca\" de la consulta (vecinos más cercanos), utilizando métricas como la similitud del coseno.</li><li><strong>Ventaja:</strong> Permite encontrar resultados relevantes incluso si no comparten las mismas palabras (por ejemplo, relacionar \"coche\" con \"automóvil\"), manejando mejor sinónimos, errores tipográficos y barreras lingüísticas.</li></ul>"
+    },
+    "data-classification": {
+        "title": "Data Classification",
+        "body": "<p>Los embeddings transforman texto no estructurado en características numéricas densas (<i>features</i>) que pueden ser utilizadas por algoritmos de clasificación tradicionales.</p><ul><li><strong>Clasificación Supervisada:</strong> En lugar de entrenar un modelo gigante desde cero, se pueden generar embeddings de los textos (usando un modelo preentrenado \"congelado\") y entrenar un clasificador ligero (como una regresión logística) sobre estos vectores para tareas como análisis de sentimiento o detección de spam.</li><li><strong>Zero-Shot Classification:</strong> Permite clasificar datos sin entrenamiento previo. Se crean embeddings de las descripciones de las etiquetas (ej: \"un correo de ventas\") y se comparan con el embedding del documento; la etiqueta con mayor similitud semántica es la elegida.</li></ul>"
+    },
+    "recommendation-systems": {
+        "title": "Recommendation Systems",
+        "body": "<p>Los sistemas de recomendación utilizan embeddings para representar ítems (productos, canciones, artículos) como vectores, donde la cercanía espacial indica similitud en el gusto o comportamiento del usuario.</p><ul><li><strong>Filtrado Colaborativo Neural:</strong> Se puede tratar el historial de un usuario (ej: una playlist de canciones) como si fuera una \"fración\" y los ítems como \"palabras\", entrenando modelos tipo word2vec para aprender qué ítems tienden a aparecer juntos.</li><li><strong>Recuperación:</strong> Al igual que en la búsqueda, el sistema recomienda ítems cuyos vectores son matemáticamente similares a los vectores de los ítems que el usuario ya ha consumido o calificado positivamente.</li></ul>"
+    },
+    "anomaly-detection": {
+        "title": "Anomaly Detection",
+        "body": "<p>La detección de anomalías con embeddings se basa en identificar puntos de datos que se alejan significativamente de la distribución normal en el espacio vectorial.</p><ul><li><strong>Outliers Semánticos:</strong> Si la mayoría de los datos forman clústeres densos en el espacio de embeddings, un dato cuyo vector está aislado o muy distante de estos grupos se considera una anomalía.</li><li><strong>Usos:</strong> Es útil para detectar datos de baja calidad, entradas maliciosas (como inyecciones de prompt inusuales) o errores en datasets, ya que estos inputs suelen tener representaciones vectoriales que no encajan con el patrón de los datos legítimos o comunes.</li></ul>"
+    },
+    "__comment_NODO_7__": "--- GOOGLE EMBEDDINGS API ---",
+    "google-embedding-models": {
+        "title": "Google Embedding Models",
+        "body": "<p>Google ofrece sus modelos de embeddings a través de la plataforma <strong>Vertex AI</strong>, proporcionando capacidades tanto para texto como para datos multimodales.</p><ul><li><strong>Capacidades:</strong> Los modelos permiten generar <em>embeddings</em> (representaciones vectoriales numéricas) para realizar tareas como búsqueda semántica, clasificación, agrupación (<em>clustering</em>) y detección de valores atípicos (outliers).</li><li><strong>Tipos de Embeddings:</strong> Vertex AI soporta <strong>Text embeddings</strong> (para capturar el significado semántico de textos) y <strong>Multimodal embeddings</strong>, que permiten generar vectores para imágenes y videos en el mismo espacio semántico, facilitando la búsqueda cruzada entre modalidades (por ejemplo, buscar imágenes usando texto).</li><li><strong>Model Garden:</strong> Además de los modelos propietarios de Google, Vertex AI aloja modelos abiertos optimizados, como la familia <strong>E5 (Multilingual E5 Small y Large)</strong>, accesibles a través del Model Garden para tareas de <em>embedding</em> multilingüe.</li></ul>"
+    },
+    "7-pricing-considerations": {
+        "title": "Pricing considerations",
+        "body": "<p>El costo de utilizar APIs de embeddings implica varios factores críticos que deben evaluarse antes de escalar una aplicación.</p><ul><li><strong>Costos de Generación:</strong> El modelo de precios suele basarse en el uso (pay-as-you-go). Generar embeddings cuesta dinero por cada solicitud, lo cual puede volverse significativo si tus datos cambian frecuentemente y requieren una regeneración constante de los vectores (re-indexing).</li><li><strong>Costos de Infraestructura Asociada:</strong> El gasto no termina en la generación; almacenar millones de vectores en una base de datos vectorial (<em>vector database</em>) y ejecutar consultas de búsqueda sobre ellos suele ser costoso. A menudo, el gasto en la base de datos vectorial puede representar una fracción considerable (ej. un quinto o la mitad) del presupuesto total de inferencia.</li><li><strong>Comparación:</strong> Aunque las APIs gestionadas ahorran costos de ingeniería, a gran escala puede ser más económico alojar modelos de embeddings abiertos (como los disponibles en Model Garden) en infraestructura propia si el volumen de datos es masivo.</li></ul>"
+    },
+    "semantic-embeddings-engine": {
+        "title": "Semantic Embeddings Engine",
+        "body": "<p>Una aplicación en Python que demuestra la búsqueda semántica. Genera embeddings para un conjunto de documentos utilizando la API de Gemini y permite buscar una consulta encontrando los documentos más similares basados en productos punto de vectores.<br><br><a href=\"https://github.com/BrianSuhit/node-7-semantic-embeddings-engine\" target=\"_blank\"><strong style=\"color: #FFEE8C;\">link al proyecto</strong></a></p>"
+    },
+    "__comment_NODO_8__": "--- OPEN-SOURCE EMBEDDINGS ---",
+    "sentence-transformers": {
+        "title": "Sentence Transformers",
+        "body": "<p>Es un framework de Python (y una arquitectura de modelos conocida como SBERT) diseñado para generar embeddings de texto densos y eficientes.</p><p>Arquitectura: Modifica modelos tipo BERT utilizando redes siamesas (bi-encoders) para procesar oraciones de manera independiente y generar vectores de tamaño fijo mediante una capa de pooling (promedio de los embeddings de los tokens).</p><p>Ventaja: Soluciona el cuello de botella computacional de los modelos BERT originales (cross-encoders), que requerían procesar cada par de oraciones juntas para medir su similitud. SBERT permite calcular similitudes semánticas (como la similitud del coseno) masivamente rápido, habilitando la búsqueda semántica y el clustering en tiempo real.</p><p>Uso: Es el estándar de la industria para cargar y utilizar modelos de embeddings abiertos en código.</p>"
+    },
+    "models-on-hugging-face": {
+        "title": "Models on Hugging Face",
+        "body": "<p>Hugging Face actúa como el repositorio central para descubrir y descargar modelos de embeddings de código abierto (\"open weights\").</p><p>Selección (MTEB): La referencia principal para elegir un modelo es el MTEB Leaderboard (Massive Text Embedding Benchmark), que clasifica los modelos según su rendimiento en tareas como recuperación, clasificación y clustering en más de 100 idiomas.</p><p>Modelos Populares:</p><ul><li> all-mpnet-base-v2: Un modelo estándar muy utilizado por su equilibrio entre velocidad y calidad para embeddings de propósito general.</li><li> all-MiniLM-L6-v2: Optimizado para alta velocidad y baja latencia.</li><li> Familias BGE y GTE: Modelos más recientes (como BAAI/bge-small-en o thenlper/gte-small) que suelen encabezar los rankings de rendimiento para tareas de recuperación (RAG) y clustering.</li><li> E5: Modelos optimizados para embeddings multilingües.</li></ul>"
+    },
+    "local-embeddings-tester": {
+        "title": "Local Embeddings Tester",
+        "body": "<p>Implementación de un motor de vectorización local utilizando la librería sentence-transformers y el modelo open-source all-MiniLM-L6-v2.<br><br><a href=\"https://github.com/BrianSuhit/08-local-embeddings-tester\" target=\"_blank\"><strong style=\"color: #FFEE8C;\">link al proyecto</strong></a></p>"
+    },
+    "__comment_NODO_9__": "--- VECTOR DATABASES ---",
+    "purpose-and-functionality": {
+        "title": "Purpose and Functionality",
+        "body": "<p>Una base de datos vectorial es un sistema especializado diseñado para almacenar, gestionar e indexar datos no estructurados (texto, imágenes, audio) en forma de <strong>embeddings</strong> (vectores numéricos de alta dimensión).</p><ul><li><strong>Propósito:</strong> A diferencia de las bases de datos tradicionales que buscan coincidencias exactas, su función principal es permitir la <strong>búsqueda semántica</strong>, encontrando datos que tengan un significado similar a la consulta, no solo las mismas palabras clave.</li><li><strong>Funcionalidad:</strong> Actúan como la \"memoria a largo plazo\" para aplicaciones de IA (como RAG), permitiendo almacenar conocimiento externo y recuperarlo eficientemente para aumentar el contexto de un LLM. Además de los vectores, almacenan <strong>metadatos</strong> y el contenido original (payload) para reconstruir el contexto tras la búsqueda. Permiten operaciones CRUD (crear, leer, actualizar, borrar) y filtrado de metadatos sin necesidad de reconstruir todo el índice constantemente.</li></ul>"
+    },
+    "chroma": {
+        "title": "Chroma",
+        "body": "<p>Es una base de datos vectorial de código abierto diseñada para facilitar la construcción de aplicaciones de IA con embeddings. Al igual que otras herramientas de su categoría (como Pinecone, Weaviate o Milvus), su función es almacenar los embeddings generados por los modelos y proporcionar una interfaz eficiente para realizar búsquedas de similitud semántica sobre ellos. Se integra en flujos de trabajo de ingeniería de IA para gestionar la persistencia del estado y el conocimiento de los agentes o sistemas RAG.</p>"
+    },
+    "indexing-embeddings": {
+        "title": "Indexing Embeddings",
+        "body": "<p>Indexar es el proceso de organizar los vectores de manera que la búsqueda sea rápida y eficiente, evitando tener que comparar la consulta con cada uno de los millones de vectores almacenados (fuerza bruta).</p><ul><li><strong>Compromisos (Trade-offs):</strong> Elegir un índice implica balancear la velocidad de búsqueda (latencia), la precisión (recall), la memoria requerida y el tiempo de construcción del índice.</li><li><strong>Algoritmos Comunes:</strong><ul><li><strong>HNSW (Hierarchical Navigable Small World):</strong> Crea un grafo multicapa donde los nodos son vectores; es muy rápido y preciso, estándar en la industria (usado en FAISS y Milvus).</li><li><strong>IVF (Inverted File Index):</strong> Usa clustering (como K-means) para agrupar vectores similares y reducir el espacio de búsqueda.</li><li><strong>Quantization (Product Quantization):</strong> Comprime los vectores reduciendo su precisión para ahorrar memoria y acelerar la búsqueda con una mínima pérdida de calidad.</li></ul></li></ul>"
+    },
+    "performing-similarity-search": {
+        "title": "Performing Similarity Search",
+        "body": "<p>Es el proceso de recuperar los vectores más cercanos (vecinos) a un vector de consulta (query embedding) en el espacio multidimensional.</p><ul><li><strong>Métricas de Distancia:</strong> Se utilizan fórmulas matemáticas para medir la \"cercanía\". Las más comunes son la <strong>Similitud del Coseno</strong> (mide el ángulo, ideal para similitud semántica, rango -1 a 1), el <strong>Producto Punto</strong> y la <strong>Distancia Euclidiana</strong> (L2).</li><li><strong>k-NN vs. ANN:</strong><ul><li><strong>k-NN (k-Nearest Neighbors):</strong> Búsqueda exacta. Compara la consulta contra <em>todos</em> los vectores. Es precisa pero lenta y costosa computacionalmente a gran escala.</li><li><strong>ANN (Approximate Nearest Neighbors):</strong> Es el estándar en producción. Utiliza los índices (como HNSW) para encontrar los vecinos más cercanos de forma aproximada pero extremadamente rápida (milisegundos), sacrificando una mínima fracción de precisión por velocidad y escalabilidad.</li></ul></li></ul>"
+    },
+    "vector-db": {
+        "title": "Vector Databases",
+        "body": "<p>Creación de un sistema de almacenamiento semántico persistente utilizando ChromaDB.<br><br><a href=\"https://github.com/BrianSuhit/09-vector-database\" target=\"_blank\"><strong style=\"color: #FFEE8C;\">link al proyecto</strong></a></p>"
+    },
+    "__comment_NODO_10__": "--- WHAT ARE RAGS? ---",
+    "chunking": {
+        "title": "Chunking",
+        "body": "<p>Es el proceso de dividir documentos largos en segmentos más pequeños y manejables antes de convertirlos en <em>embeddings</em>,. Es un paso crítico porque los modelos de <em>embedding</em> y los LLMs tienen límites en su ventana de contexto (cantidad máxima de tokens). Además, dividir el texto ayuda a recuperar información específica con mayor precisión, evitando que conceptos relevantes se diluyan en vectores de documentos muy extensos,. Existen estrategias como el <em>chunking</em> de tamaño fijo, recursivo o semántico.</p>"
+    },
+    "embedding": {
+        "title": "Embedding",
+        "body": "<p>Es la transformación de los fragmentos de texto (<em>chunks</em>) y de la consulta del usuario en representaciones numéricas vectoriales (listas de números de punto flotante),. Estos vectores capturan el significado semántico del texto, de modo que fragmentos con significados similares se ubiquen cerca unos de otros en un espacio multidimensional, permitiendo la búsqueda por significado y no solo por palabras clave.</p>"
+    },
+    "retrieval-process": {
+        "title": "Retrieval Process",
+        "body": "<p>Es la etapa de recuperación de información. Cuando el usuario realiza una consulta, esta se convierte en un vector y se compara con los vectores almacenados en la base de datos,. Se utilizan algoritmos de búsqueda de vecinos más cercanos (como k-NN o ANN) para identificar y extraer los <em>k</em> fragmentos (<em>chunks</em>) que tienen mayor similitud semántica (menor distancia matemática) con la pregunta del usuario.</p>"
+    },
+    "generation": {
+        "title": "Generation",
+        "body": "<p>Es la fase final donde el LLM sintetiza la respuesta. El sistema combina la consulta original del usuario con los fragmentos de texto recuperados (<em>retrieved context</em>) dentro de un <em>prompt</em> estructurado,. El modelo utiliza esta información externa como \"verdad terreno\" para generar una respuesta coherente y contextualizada, un proceso conocido como <em>grounded generation</em>, lo que ayuda a reducir significativamente las alucinaciones.</p>"
+    },
+    "using-sdks-directly": {
+        "title": "Using SDKs Directly",
+        "body": "<p>Se refiere a la implementación de flujos RAG escribiendo manualmente la lógica de conexión (el código \"pegamento\") utilizando directamente las APIs de los modelos (como OpenAI) y bases de datos vectoriales, sin intermediarios. Este enfoque ofrece mayor control y transparencia sobre el flujo de datos y evita la complejidad o las abstracciones innecesarias que pueden introducir los frameworks de orquestación, permitiendo optimizar el rendimiento y la depuración.</p>"
+    },
+    "langchain": {
+        "title": "Langchain",
+        "body": "<p>Es un framework de orquestación popular que proporciona abstracciones modulares para construir aplicaciones LLM complejas. Permite encadenar (<em>chain</em>) componentes como <em>prompts</em>, modelos, memoria y herramientas de recuperación de manera estandarizada. Simplifica la integración de fuentes de datos externas y la gestión del flujo de trabajo de RAG mediante componentes preconstruidos.</p>"
+    },
+    "llama-index": {
+        "title": "Llama Index",
+        "body": "<p>Es un framework de datos diseñado para conectar fuentes de datos personalizadas con LLMs. Se utiliza frecuentemente en arquitecturas RAG para facilitar la ingestión, estructuración y recuperación de datos privados, y también incluye herramientas para evaluar la calidad de las respuestas generadas (como la fidelidad del contexto).</p>"
+    },
+    "haystack": {
+        "title": "Haystack",
+        "body": "<p>Es un framework de orquestación de extremo a extremo para construir <em>pipelines</em> de procesamiento de lenguaje natural (NLP) y búsqueda semántica,. A diferencia de librerías más generalistas, se enfoca en definir flujos de trabajo claros para sistemas de búsqueda y respuesta a preguntas (QA), facilitando la implementación de arquitecturas RAG robustas.</p>"
+    },
+    "ragflow": {
+        "title": "RAGFlow",
+        "body": "<p>RAGFlow es un motor de Generación Aumentada por Recuperación (RAG) de código abierto diseñado para optimizar el flujo de trabajo entre documentos complejos y modelos de lenguaje (LLM). Su enfoque principal es la comprensión profunda de documentos, permitiendo que las IAs generen respuestas precisas y verificables basadas en datos reales de una empresa.</p>"
+    },
+    "rag-system": {
+        "title": "RAG System",
+        "body": "<p>Desarrollo de un sistema de Generación Aumentada por Recuperación (RAG) completo. <br><br><a href=\"https://github.com/BrianSuhit/10-rag-system\" target=\"_blank\"><strong style=\"color: #FFEE8C;\">link al proyecto</strong></a></p>"
+    },
+
+    "__comment_NODO_11__": "--- AI AGENTS ---",
+    "ai-agent": {
+        "title": "AI Agent",
+        "body": "<p>Un Agente de IA es un sistema autónomo que utiliza un LLM como su \"cerebro\" para razonar, planificar y tomar medidas para lograr un objetivo. A diferencia de un chatbot estándar que solo responde con su conocimiento interno, un agente tiene <strong>agencia</strong>: puede percibir su entorno, decidir qué acciones tomar (como buscar en la web o consultar una base de datos) y usar herramientas para completar tareas complejas que requieren múltiples pasos.</p>"
+    },
+    "agents-usecases": {
+        "title": "Agents Usecases",
+        "body": "<p>Los casos de uso aprovechan la capacidad del agente para interactuar con el mundo real y realizar flujos de trabajo autónomos:</p><ul><li><strong>Asistente de Investigación:</strong> Busca papers, filtra los relevantes, resume hallazgos y genera informes con citas.</li><li><strong>Coding Agent:</strong> Navega por un repositorio de código, lee archivos, edita líneas y ejecuta tests (ej. SWE-agent).</li><li><strong>Automatización de Flujos (RPA):</strong> Planifica viajes, reserva vuelos consultando APIs de aerolíneas y gestiona calendarios.</li><li><strong>Análisis de Datos:</strong> Genera consultas SQL para una base de datos, ejecuta la consulta y analiza los resultados para responder preguntas de negocio.</li></ul>"
+    },
+    "react-prompting": {
+        "title": "ReAct Prompting",
+        "body": "<p>Es la técnica fundamental (Reason + Act) que permite a los agentes pensar antes de actuar. El agente opera en un bucle continuo de tres pasos:</p><ol><li><strong>Thought (Pensamiento):</strong> El modelo razona sobre el estado actual y decide qué hacer (\"Necesito buscar el precio del producto\").</li><li><strong>Action (Acción):</strong> El modelo genera un comando o llamada a una herramienta específica (\"Search[producto]\").</li><li><strong>Observation (Observación):</strong> El sistema ejecuta la acción y devuelve el resultado al modelo (\"El precio es $500\"). Este ciclo se repite hasta que el agente determina que puede dar una respuesta final.</li></ol>"
+    },
+    "manual-implementation": {
+        "title": "Manual Implementation",
+        "body": "<p>Implementar un agente \"desde cero\" (sin frameworks como LangChain) implica construir un bucle de control (<code>while loop</code>) en código:</p><ol><li>Se envía el <em>prompt</em> con el historial al LLM.</li><li>Se analiza la respuesta del LLM para detectar si quiere ejecutar una acción (ej. detectando un bloque JSON o un comando específico).</li><li>Si hay una acción, el código la ejecuta (ej. llama a una API de clima) y obtiene el resultado.</li><li>El resultado se añade al historial de mensajes como una \"observación\".</li><li>El bucle se repite hasta que el LLM genera una respuesta final para el usuario.</li></ol>"
+    },
+    "google-functions-tools": {
+        "title": "Google Functions / Tools",
+        "body": "<p><em>(Equivalente a Function Calling)</em>. Es la capacidad de los modelos (como Gemini en Vertex AI) para conectarse con herramientas externas. Tú defines las herramientas (funciones) como esquemas JSON que describen qué hacen y qué parámetros necesitan (ej. <code>get_weather(location)</code>). El modelo no ejecuta la función, sino que genera una salida estructurada solicitando la ejecución. Tu aplicación intercepta esta solicitud, ejecuta el código real (la herramienta) y devuelve el resultado al modelo para que continúe la conversación.</p>"
+    },
+    "google-response-api": {
+        "title": "Google Response API",
+        "body": "<p><em>(Contexto de Gemini/Vertex AI)</em> Se refiere a cómo el modelo estructura su respuesta cuando usa herramientas. En lugar de devolver solo texto, la respuesta de la API puede contener un objeto <code>functionCall</code> que indica el nombre de la función a llamar y los argumentos generados por el modelo. Una vez ejecutada la herramienta, la aplicación debe enviar una nueva solicitud a la API incluyendo un <code>functionResponse</code> con el resultado, permitiendo al modelo incorporar esa información en su respuesta final al usuario.</p>"
+    },
+    "vertex-ai": {
+        "title": "Vertex AI",
+        "body": "<p>Es la plataforma de desarrollo de IA totalmente gestionada de Google. Proporciona la infraestructura unificada para construir agentes y aplicaciones de IA generativa. Incluye <strong>Model Garden</strong> (para acceder a modelos como Gemini, Claude, Llama), herramientas para <em>finetuning</em>, evaluación de modelos y <strong>Agent Builder</strong>, que facilita la orquestación de agentes, la gestión de herramientas y la implementación de sistemas RAG a escala empresarial con seguridad y cumplimiento normativo.</p>"
+    },
+    "google-adk": {
+        "title": "Google ADK",
+        "body": "<p><em>(Mencionado en la documentación de Live API)</em> Se refiere al <strong>Agent Development Kit</strong> (o Gen AI SDK en contextos de hardware/multimodalidad). En el contexto de las capacidades más recientes de Google (como la Live API de Gemini), el ADK proporciona las bibliotecas y herramientas necesarias para gestionar sesiones en tiempo real (audio/video bidireccional) y conectar agentes con entradas de sensores o dispositivos, facilitando la creación de experiencias de agente de baja latencia.</p>"
+    },
+    "11-ai-agent": {
+        "title": "AI Agent",
+        "body": "<p>Creación de un Agente de IA personalizado utilizando la API de Gemini y <em>Function Calling</em>. El sistema integra funciones de Python que exponen la grilla de cursada y el calendario de feriados como herramientas (<code>tools</code>) para el modelo.</p><p>Mediante <em>System Instructions</em>, el agente adquiere personalidad y capacidad de razonamiento, permitiéndole cruzar datos de horarios con días no laborables para responder consultas complejas sobre la agenda académica de forma precisa.</p><br><br><a href=\"https://github.com/BrianSuhit/11-ai-agent\" target=\"_blank\"><strong style=\"color: #FFEE8C;\">link al proyecto</strong></a>"
+    },
+    "__comment_NODO_12__": "--- MODEL CONTEXT PROTOCOL (MCP) ---",
+    "mcp-host": {
+        "title": "MCP Host",
+        "body": "<p>El Host es la aplicación de IA orientada al usuario donde \"vive\" el modelo (como la app de escritorio de Claude, un IDE como Cursor o una aplicación personalizada). Es el orquestador principal que inicia las conexiones con los servidores MCP disponibles, captura la entrada del usuario y gestiona el historial de la conversación. El Host decide cuándo y cómo solicitar capacidades a los servidores conectados basándose en las necesidades del usuario.</p>"
+    },
+    "mcp-client": {
+        "title": "MCP Client",
+        "body": "<p>Es el componente técnico dentro del Host que gestiona la comunicación de bajo nivel con los servidores MCP. Actúa como un \"adaptador\" o mensajero: mantiene la conexión, realiza el <em>handshake</em> inicial para negociar capacidades (descubrir qué herramientas o recursos ofrece el servidor) y gestiona el envío y recepción de mensajes (como llamadas a herramientas o lecturas de recursos) asegurando que ambos lados \"hablen el mismo idioma\".</p>"
+    },
+    "mcp-server": {
+        "title": "MCP Server",
+        "body": "<p>Es el servicio que expone las capacidades (herramientas, datos, prompts) a la aplicación de IA. Funciona como una capa estandarizada alrededor de tus sistemas internos (bases de datos, APIs, sistemas de archivos). En lugar de crear una integración específica para cada modelo de IA, creas un Servidor MCP una sola vez, y cualquier cliente MCP (como Claude o tu propio agente) puede conectarse y utilizar sus funciones automáticamente.</p>"
+    },
+    "data-layer": {
+        "title": "Data Layer",
+        "body": "<p>Esta capa define <em>qué</em> información y acciones se intercambian. Se basa en primitivas centrales que el servidor expone:</p><ul><li><strong>Resources:</strong> Datos de solo lectura que la IA puede leer (como archivos, logs o esquemas de base de datos).</li><li><strong>Tools:</strong> Funciones ejecutables que la IA puede invocar para realizar acciones (como hacer una consulta API o ejecutar código).</li><li><strong>Prompts:</strong> Plantillas predefinidas que ayudan a guiar a la IA en tareas específicas dentro del contexto del servidor.</li></ul>"
+    },
+    "transport-layer": {
+        "title": "Transport Layer",
+        "body": "<p>Es la capa que define <em>cómo</em> viajan los mensajes entre el cliente y el servidor. MCP utiliza <strong>JSON-RPC</strong> como formato de mensaje estándar. Para el transporte físico de estos mensajes, soporta principalmente:</p><ul><li><strong>Stdio (Standard Input/Output):</strong> Para conexiones locales rápidas, donde el servidor se ejecuta como un subproceso del cliente (común en aplicaciones de escritorio).</li><li><strong>SSE (Server-Sent Events) over HTTP:</strong> Para conexiones remotas o distribuidas, permitiendo un flujo de mensajes bidireccional sobre la web estándar.</li></ul>"
+    },
+    "building-an-mcp-server": {
+        "title": "Building an MCP Server",
+        "body": "<p>Crear un servidor implica utilizar un SDK (como <code>mcp-use</code> o <code>FastMCP</code> en Python/TypeScript) para envolver tus funciones. Se hace de forma declarativa usando decoradores (ej. <code>@mcp.tool</code> o <code>@mcp.resource</code>) sobre tus funciones de código existentes. Al arrancar, el servidor traduce automáticamente estas funciones a la especificación MCP, haciéndolas descubribles inmediatamente para cualquier cliente sin configuración extra.</p>"
+    },
+    "building-an-mcp-client": {
+        "title": "Building an MCP Client",
+        "body": "<p>Para construir un cliente, se inicializa una instancia de <code>MCPClient</code> que se configura para conectarse a uno o varios servidores. El cliente se encarga de listar las herramientas disponibles (<code>list_tools</code>) y exponerlas al LLM. Frameworks como <code>mcp-use</code> permiten integrar este cliente dentro de agentes (como en LangChain o CrewAI) con pocas líneas de código, permitiendo al agente \"ver\" y usar las herramientas del servidor como si fueran nativas.</p>"
+    },
+    "connect-to-local-server": {
+        "title": "Connect to Local Server",
+        "body": "<p>La conexión local es ideal para desarrollo y seguridad. El cliente ejecuta el servidor directamente (generalmente mediante un comando como <code>npx</code> o <code>python server.py</code>) y se comunican a través de la entrada/salida estándar (stdio). Esto garantiza que los datos sensibles nunca salgan de la máquina del usuario, ya que no hay tráfico de red involucrado.</p>"
+    },
+    "connect-to-remote-server": {
+        "title": "Connect to Remote Server",
+        "body": "<p>Para conectar con servidores desplegados en la nube o en otra máquina, se utiliza el transporte HTTP/SSE. El cliente necesita la URL del endpoint del servidor (ej. <code>https://api.midominio.com/mcp</code>). En entornos de desarrollo, se pueden usar herramientas de \"tunneling\" (como <code>ngrok</code> o comandos de túnel integrados en SDKs) para exponer un servidor local a un cliente remoto (como ChatGPT) mediante una URL pública temporal.</p>"
+    },
+    "12-mcp": {
+        "title": "MCP",
+        "body": "<p>Implementación básica de un servidor MCP (\"Hello World\") utilizando el SDK <code>FastMCP</code> en Python. Expone una única herramienta (<code>tool</code>) para saludar al usuario, demostrando el flujo de trabajo esencial para crear y exponer funciones a clientes MCP.</p><br><br><a href=\"https://github.com/BrianSuhit/12-mcp\" target=\"_blank\"><strong style=\"color: #FFEE8C;\">link al proyecto</strong></a>"
+    },
+    "__comment_NODO_13__": "--- MULTIMODAL AI ---",
+    "multimodal-ai-usecases": {
+        "title": "Multimodal AI Usecases",
+        "body": "<p>La IA multimodal permite procesar y razonar sobre múltiples tipos de datos (texto, imágenes, audio) simultáneamente, superando las limitaciones de los modelos de solo texto. Los casos de uso principales incluyen:</p><ul><li><strong>Visual Question Answering (VQA):</strong> Responder preguntas sobre una imagen (ej. \"¿Qué ingredientes hay en esta pizza?\").</li><li><strong>Captioning:</strong> Generar descripciones textuales automáticas para imágenes o videos, útil para accesibilidad y búsqueda.</li><li><strong>Búsqueda Multimodal:</strong> Buscar imágenes usando texto (\"fotos de un cachorro\") o buscar documentos usando imágenes, gracias a espacios vectoriales compartidos.</li><li><strong>Generación Creativa:</strong> Crear imágenes o videos a partir de descripciones textuales (Text-to-Image).</li></ul>"
+    },
+    "image-understanding": {
+        "title": "Image Understanding",
+        "body": "<p>Se basa en convertir imágenes en representaciones numéricas que los modelos pueden procesar. La arquitectura dominante es el <strong>Vision Transformer (ViT)</strong>.</p><ul><li><strong>Patching:</strong> En lugar de tokens de texto, la imagen se divide en \"parches\" (recortes cuadrados) que se aplanan y proyectan linealmente. Estos parches se tratan como una secuencia, similar a las palabras en una oración, permitiendo usar la arquitectura Transformer estándar.</li><li><strong>Encoders:</strong> Modelos como el encoder de imágenes de CLIP aprenden a representar el contenido visual en el mismo espacio semántico que el texto.</li></ul>"
+    },
+    "image-generation": {
+        "title": "Image Generation",
+        "body": "<p>Utiliza modelos (como los de difusión) para crear contenido visual nuevo.</p><ul><li><strong>Inpainting/Outpainting:</strong> Permite a los usuarios editar imágenes existentes seleccionando una región y describiendo los cambios con texto (ej. cambiar un gato triste por uno feliz), colaborando con la IA para refinar el resultado.</li><li><strong>Personalización:</strong> Técnicas para adaptar modelos a estilos específicos o sujetos (como logotipos de marca) mediante fine-tuning o adaptadores.</li></ul>"
+    },
+    "video-understanding": {
+        "title": "Video Understanding",
+        "body": "<p>Implica analizar secuencias de imágenes (frames) a lo largo del tiempo para capturar información temporal y de movimiento.</p><ul><li><strong>Capacidades:</strong> Incluye la detección de objetos en movimiento, el seguimiento (tracking), el reconocimiento de acciones y la respuesta a preguntas sobre el contenido del video (Video Q&A). Los modelos multimodales más recientes pueden procesar video de forma nativa junto con audio y texto para una comprensión holística.</li></ul>"
+    },
+    "audio-processing": {
+        "title": "Audio Processing",
+        "body": "<p>Se refiere a la capacidad de los modelos para entender y analizar señales de audio más allá del habla, como música o sonidos ambientales.</p><ul><li><strong>Comprensión:</strong> Los modelos pueden clasificar sonidos, detectar eventos acústicos o analizar la estructura de piezas musicales.</li><li><strong>Generación:</strong> Incluye la creación de música o efectos de sonido a partir de descripciones textuales (ej. Lyria de Google).</li></ul>"
+    },
+    "text-to-speech": {
+        "title": "Text-to-Speech",
+        "body": "<p>Es la síntesis de voz artificial a partir de texto. En el contexto de la ingeniería de IA moderna, esto va más allá de la lectura robótica; implica generar voces naturales, con entonación y emoción, o clonar voces específicas para asistentes conversacionales más inmersivos.</p>"
+    },
+    "speech-to-text": {
+        "title": "Speech-to-Text",
+        "body": "<p>También conocido como Reconocimiento Automático del Habla (ASR). Es el proceso de transcribir audio a texto escrito.</p><ul><li><strong>Aplicaciones:</strong> Es fundamental para interfaces de voz, permitiendo que los usuarios hablen con aplicaciones LLM en lugar de escribir. Las transcripciones se usan luego como <em>prompts</em> para el modelo de lenguaje.</li></ul>"
+    },
+    "google-vision-api": {
+        "title": "Google vision api",
+        "body": "<p><em>(Contexto de Generative AI en Vertex AI)</em> Google ofrece capacidades de visión a través de sus modelos multimodales <strong>Gemini</strong> (Pro y Flash) y <strong>Imagen</strong>.</p><ul><li><strong>Capacidades:</strong> Permiten \"Image Understanding\" (describir imágenes, extraer texto/OCR, detectar objetos con bounding boxes) y \"Visual Question Answering\". Los modelos pueden razonar sobre imágenes y video enviados como parte del prompt.</li><li><strong>Imagen:</strong> Es la familia de modelos dedicada específicamente a la generación y edición de imágenes de alta calidad a partir de texto.</li></ul>"
+    },
+    "dall-e-api": {
+        "title": "DALL-E API",
+        "body": "<p>Es la API de OpenAI para sus modelos de generación de imágenes. Permite a los desarrolladores integrar la capacidad de crear imágenes originales desde cero basándose en <em>prompts</em> de texto. Además de la generación, soporta funciones de edición como <strong>Inpainting</strong> (editar partes internas de una imagen) y variaciones de imágenes existentes.</p>"
+    },
+    "whisper-api": {
+        "title": "Whisper API",
+        "body": "<p>Es un modelo de reconocimiento de habla (ASR) de código abierto (disponible también vía API) desarrollado para ofrecer transcripciones robustas y traducción al inglés. Es capaz de manejar múltiples idiomas y acentos, convirtiendo audio en texto que luego puede ser procesado por un LLM para tareas posteriores como resumen o análisis.</p>"
+    },
+    "14-hugging-face-models": {
+        "title": "Hugging Face Models",
+        "body": "<p>Hugging Face aloja miles de modelos multimodales de código abierto. Algunos ejemplos clave explicados en la literatura técnica incluyen:</p><ul><li><strong>CLIP (OpenAI/OpenCLIP):</strong> Conecta texto e imágenes en un espacio vectorial compartido, fundamental para búsqueda semántica y clasificación zero-shot.</li><li><strong>BLIP-2:</strong> Un modelo que une encoders de visión congelados con LLMs usando un componente llamado <em>Q-Former</em>, permitiendo a los LLMs \"ver\" y chatear sobre imágenes de manera eficiente.</li><li><strong>LLaVA e Idefics:</strong> Modelos que siguen instrucciones visuales, proyectando características de imagen en el espacio de embedding del lenguaje.</li></ul>"
+    },
+    "langchain-for-multimodal-apps": {
+        "title": "LangChain for Multimodal Apps",
+        "body": "<p>LangChain facilita la construcción de aplicaciones multimodales permitiendo encadenar modelos de diferentes tipos.</p><ul><li><strong>Agentes Multimodales:</strong> Se pueden configurar agentes que tengan acceso a \"herramientas\" visuales (como un generador de imágenes o un captioner). El LLM de texto decide cuándo usar estas herramientas basándose en la solicitud del usuario (ej. \"describe esta imagen\" activa la herramienta de captioning).</li><li><strong>Memoria:</strong> Permite gestionar historiales de chat que incluyen referencias a imágenes o archivos multimedia procesados.</li></ul>"
+    },
+    "llamaindex-for-multi-modal-apps": {
+        "title": "LlamaIndex for Multi-modal Apps",
+        "body": "<p>LlamaIndex se especializa en la ingestión e indexación de datos multimodales para sistemas RAG (<strong>Multimodal RAG</strong>).</p><ul><li><strong>Multimodal RAG:</strong> Permite indexar texto e imágenes juntos. Al realizar una consulta, el sistema puede recuperar tanto fragmentos de texto relevantes como imágenes relacionadas para enviarlas a un modelo multimodal (como GPT-4V o Gemini) que sintetice una respuesta completa usando ambas modalidades como contexto.</li></ul>"
+    },
+    "multimodal-vision": {
+        "title": "Multimodal Vision",
+        "body": "<p>Implementación de un análisis de imágenes utilizando las capacidades multimodales de la API de Google (Gemini 3 Flash). El script procesa una imagen local para extraer automáticamente su contexto visual, colores predominantes y objetos detectados.</p><br><br><a href=\"https://github.com/BrianSuhit/13-multimodal-vision\" target=\"_blank\"><strong style=\"color: #FFEE8C;\">link al proyecto</strong></a>"
+    },
+    "__comment_NODO_14__": "--- DEVELOPMENT TOOLS ---",
+    "ai-code-editors": {
+        "title": "AI Code Editors",
+        "body": "<p>Son entornos de desarrollo (IDEs) diseñados nativamente o adaptados profundamente para integrar la IA en el flujo de trabajo central, en lugar de tratarla solo como un complemento externo.</p><ul><li><strong>Funcionamiento:</strong> Herramientas como <strong>Cursor</strong> actúan como un \"Host\" para modelos de IA, permitiendo que el asistente tenga acceso de lectura/escritura al sistema de archivos y contexto del proyecto completo. A diferencia de un editor estándar, un AI Editor integra el chat y la generación de código directamente en la interfaz de edición, permitiendo refactorizaciones, corrección de errores y generación de bloques enteros de código (\"agentic editing\") de forma fluida.</li><li><strong>Ventaja:</strong> Ofrecen una experiencia más integrada que los plugins tradicionales, permitiendo \"chatear con tu código\" y ejecutar cambios complejos en múltiples archivos simultáneamente.</li></ul>"
+    },
+    "code-completion-tools": {
+        "title": "Code Completion Tools",
+        "body": "<p>Son asistentes de codificación que funcionan principalmente como motores de \"autocompletado avanzado\" o \"ghost text\" (texto fantasma) dentro del editor.</p><ul><li><strong>Ejemplos:</strong> <strong>GitHub Copilot</strong> es el estándar de la industria. Funciona prediciendo los siguientes tokens del código basándose en el contexto del archivo actual y pestañas abiertas.</li><li><strong>Interacción:</strong> Presentan sugerencias en gris (ghost text) que el desarrollador puede aceptar (usualmente con la tecla Tab) o ignorar siguiendo con la escritura.</li><li><strong>Tecnología:</strong> Utilizan modelos especializados en código (como la familia <strong>Codex</strong> o <strong>StarCoder</strong>) entrenados para entender sintaxis y lógica de programación, permitiendo generar desde líneas simples hasta funciones completas a partir de comentarios o docstrings.</li><li><strong>Impacto:</strong> Aumentan significativamente la productividad en tareas repetitivas, escritura de tests y documentación.</li></ul>"
+    },
+    "__comment_ADICIONALES__": "--- ENTRADAS ADICIONALES ---",
+    "placegolder": {
+        "title": "lorem ipsum",
+        "body": "<p>lorem ipsum dolor sit amet</p>"
+    },
+    "default": {
+        "title": "Pr\u00f3ximamente",
+        "body": "<p>Este contenido est\u00e1 en desarrollo.</p>"
+    }
+}

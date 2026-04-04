@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1200">
+    <title>Ai Engineer Roadmap - Brian Suhit</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- titulo principal -->
+    <header>
+        <h1>AI ENGINEER ROADMAP</h1>
+        <div class="warning-banner">
+            <strong>⚠️ LEGACY VERSION:</strong> This roadmap is based on the 2024/2025 structure. 
+            I am currently developing the <strong>Fundamentlas of AI Engineering Guidebook</strong> as the definitive and improved version.
+        </div>
+    </header>
+
+    <!-- contenedor principal -->
+    <main class="roadmap-container">
+
+        <!-- NODO 1: INTRODUCCION -->
+        <div class="roadmap-row">
+            
+            <!-- IZQUIERDA VACÍA (No hay proyecto) -->
+            <div class="col-project"></div>
+
+            <!-- CENTRAL -->
+            <div class="col-main">
+                <div class="main-node completed">
+                    <h2>1. Introduction</h2>
+                </div>
+                <div class="connector-line"></div>
+            </div>
+
+            <!-- DERECHA -->
+            <div class="col-subnodes">
+                <div class="subnode" onclick="openModal('what-is-ai-engineer')">what is an Ai Engineer?</div>
+                <div class="subnode" onclick="openModal('roles-responsibilities')">Roles and Responsibilities</div>
+                <div class="subnode" onclick="openModal('impact-product-dev')">Impact on Product Development</div>
+                <div class="subnode" onclick="openModal('ai-vs-ml-engineer')">AI Engineer vs ML Engineer</div>
+
+            <!-- GRUPO ENVOLVENTE (Common Terminology) -->
+            <div class="subnode-group">
+                <span class="group-title">Common Terminology</span>
+                
+                <!-- Los hijos van adentro -->
+                <div class="subnode" onclick="openModal('ai-vs-agi')">AI vs AGI</div>
+                <div class="subnode" onclick="openModal('llms')">LLMs</div>
+                <div class="subnode" onclick="openModal('inference')">Inference</div>
+                <div class="subnode" onclick="openModal('training')">Training</div>
+                <div class="subnode" onclick="openModal('embeddings')">Embeddings</div>
+                <div class="subnode" onclick="openModal('vector-database')">Vector Database</div>
+                <div class="subnode" onclick="openModal('ai-agents')">Ai Agents</div>
+                <div class="subnode" onclick="openModal('rag')">RAG</div>
+                <div class="subnode" onclick="openModal('prompt-engineering')">Prompt Engineering</div>
+            </div>
+            </div>
+        </div>
+
+        <!-- NODO 2: Pre-trained Models -->
+        <div class="roadmap-row">
+
+            <!-- COLUMNA IZQUIERDA: EL PROYECTO -->
+            <div class="col-project">
+                <div class="project-card" onclick="openModal('pre-trained-sentiment')">
+                    <strong>PROYECTO</strong>
+                    <span>Pre-trained Sentiment</span>
+                </div>
+                </div>
+
+                <!-- COLUMNA CENTRAL: EL TRONCO -->
+                    <div class="col-main">
+                    <div class="main-node completed">
+                        <h2>2. Pre-trained Models</h2>
+                    </div>
+                    <!-- La línea vertical que conecta con el siguiente -->
+                    <div class="connector-line"></div>
+                </div>
+
+                <!-- COLUMNA DERECHA: SUBNODOS -->
+                <div class="col-subnodes">
+                    <div class="subnode" onclick="openModal('benefits-of-pre-trained-models')">Benefits of Pre-trained Models</div>
+                    <div class="subnode" onclick="openModal('limitations-and-considerations')">Limitations and Considerations</div>
+
+                <!-- GRUPO ENVOLVENTE ( Google Models ) -->
+                <div class="subnode-group">
+                    <span class="group-title">Google Models</span>
+                    
+                    <!-- Los hijos van adentro -->
+                    <div class="subnode" onclick="openModal('google-models')">Google Models</div>
+                    <div class="subnode" onclick="openModal('capabilities-context-length')">Capabilities / Context Length</div>
+                    <div class="subnode" onclick="openModal('cut-off-dates-knowledge')">Cut-off Dates / Knowledge</div>
+                </div>
+
+                <!-- GRUPO ENVOLVENTE ( Other Ai Models ) -->
+                <div class="subnode-group">
+                    <span class="group-title">Other Ai Models</span>
+                    
+                    <!-- Los hijos van adentro -->
+                    <div class="subnode" onclick="openModal('anthropics-claude')">Anthropic's Claude</div>
+                    <div class="subnode" onclick="openModal('openai-gpt')">OpenAi GPT</div>
+                    <div class="subnode" onclick="openModal('azure-ai')">Azure Ai</div>
+                    <div class="subnode" onclick="openModal('aws-sagemaker')">AWS SageMaker</div>
+                    <div class="subnode" onclick="openModal('hugging-face-models')">Hugging Face Models</div>
+                    <div class="subnode" onclick="openModal('mistral-ai')">Mistral AI</div>
+                    <div class="subnode" onclick="openModal('cohere')">Cohere</div>
+                    <div class="subnode" onclick="openModal('replicate')">Replicate</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NODO 3: Google API -->
+        <div class="roadmap-row">
+
+            <!-- COLUMNA IZQUIERDA: EL PROYECTO -->
+            <div class="col-project">
+                <div class="project-card" onclick="openModal('ai-resume-critiquer')">
+                    <strong>PROYECTO</strong>
+                    <span>AI Resume Critiquer</span>
+                </div>
+            </div>
+
+            <!-- COLUMNA CENTRAL: EL TRONCO -->
+            <div class="col-main">
+                <div class="main-node completed">
+                    <h2>3. Google API</h2>
+                </div>
+                <!-- La línea vertical que conecta con el siguiente -->
+                <div class="connector-line"></div>
+            </div>
+
+            <!-- COLUMNA DERECHA: SUBNODOS -->
+            <div class="col-subnodes">
+                <div class="subnode" onclick="openModal('chat-completions-api')">Chat Completions API</div>
+                <div class="subnode" onclick="openModal('writing-prompts')">Writing Prompts</div>
+
+                <!-- GRUPO ENVOLVENTE ( Managings Tokens ) -->
+                <div class="subnode-group">
+                    <span class="group-title">Managings Tokens</span>
+                    
+                    <!-- Los hijos van adentro -->
+                    <div class="subnode" onclick="openModal('maximum-tokens')">Maximum Tokens</div>
+                    <div class="subnode" onclick="openModal('token-counting')">Token Counting</div>
+                    <div class="subnode" onclick="openModal('pricing-considerations')">Pricing Considerations</div>
+                    </div>
+                    <div class="subnode" onclick="openModal('google-ai-studio')">Google AI Studio</div>
+                    <div class="subnode" onclick="openModal('fine-tuning')">Fine-tuning</div>
+                    <div class="subnode" onclick="openModal('3-prompt-engineering')">Prompt Engineering</div>
+                </div>
+        </div>
+
+        <!-- NODO 4: Open Source AI -->
+        <div class="roadmap-row">
+
+            <!-- COLUMNA IZQUIERDA: EL PROYECTO -->
+            <div class="col-project">
+                <div class="project-card" onclick="openModal('multimodel-tester')">
+                    <strong>PROYECTO</strong>
+                    <span>Multimodel Tester</span>
+                </div>
+            </div>
+
+            <!-- COLUMNA CENTRAL: EL TRONCO -->
+                <div class="col-main">
+                <div class="main-node completed">
+                    <h2>4. Open Source AI</h2>
+                </div>
+                <!-- La línea vertical que conecta con el siguiente -->
+                <div class="connector-line"></div>
+            </div>
+
+            <!-- COLUMNA DERECHA: SUBNODOS -->
+            <div class="col-subnodes">
+                <div class="subnode" onclick="openModal('open-vs-closed-source-models')">Open vs Closed Source Models</div>
+                <div class="subnode" onclick="openModal('popular-open-source-models')">Popular Open Source Models</div>
+
+                <!-- GRUPO ENVOLVENTE ( Hugging Face ) -->
+                <div class="subnode-group">
+                    <span class="group-title">Hugging Face</span>
+                    
+                    <!-- Los hijos van adentro -->
+                    <div class="subnode" onclick="openModal('hugging-face-tasks')">Hugging Face Tasks</div>
+                    <div class="subnode" onclick="openModal('hugging-face-hub')">Hugging Face Hub</div>
+                    <div class="subnode" onclick="openModal('inference-sdk')">Inference SDK</div>
+                    <div class="subnode" onclick="openModal('transformers-js')">Transformers.js</div>
+                </div>
+
+                <!-- GRUPO ENVOLVENTE ( Ollama ) -->
+                <div class="subnode-group">
+                    <span class="group-title">Ollama</span>
+                    
+                    <!-- Los hijos van adentro -->
+                    <div class="subnode" onclick="openModal('ollama-models')">Ollama Models</div>
+                    <div class="subnode" onclick="openModal('ollama-sdk')">Ollama SDK</div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- NODO 5: AI Safety and Ethics -->
+        <div class="roadmap-row">
+
+            <!-- IZQUIERDA VACÍA (No hay proyecto) -->
+            <div class="col-project"></div>
+
+            <!-- COLUMNA CENTRAL: EL TRONCO -->
+                <div class="col-main">
+                <div class="main-node completed">
+                    <h2>5. AI Safety and Ethics</h2>
+                </div>
+                <!-- La línea vertical que conecta con el siguiente -->
+                <div class="connector-line"></div>
+            </div>
+
+            <!-- COLUMNA DERECHA: SUBNODOS -->
+            <div class="col-subnodes">
+
+                <!-- GRUPO ENVOLVENTE ( Understanding AI Safety Issues ) -->
+                <div class="subnode-group">
+                    <span class="group-title">Understanding AI Safety Issues</span>
+                    
+                    <!-- Los hijos van adentro -->
+                    <div class="subnode" onclick="openModal('prompt-injection-attacks')">Prompt Injection Attacks</div>
+                    <div class="subnode" onclick="openModal('security-and-privacy-concerns')">Security and Privacy Concerns</div>
+                    <div class="subnode" onclick="openModal('bias-and-fairness')">Bias and Fairness</div>
+                </div>
+
+                <!-- GRUPO ENVOLVENTE ( Safety Best Practice ) -->
+                <div class="subnode-group">
+                    <span class="group-title">Safety Best Practice</span>
+                    
+                    <!-- Los hijos van adentro -->
+                    <div class="subnode" onclick="openModal('google-moderation-api')">Google moderation api</div>
+                    <div class="subnode" onclick="openModal('adding-end-user-ids-in-prompts')">Adding end-user IDs in prompts</div>
+                    <div class="subnode" onclick="openModal('conducting-adversarial-testing')">Conducting adversarial testing</div>
+                    <div class="subnode" onclick="openModal('robust-prompt-engineering')">Robust prompt engineering</div>
+                    <div class="subnode" onclick="openModal('know-your-customers-usecases')">Know your Customers / Usecases</div>
+                    <div class="subnode" onclick="openModal('constraining-outputs-and-inputs')">Constraining outputs and inputs</div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- NODO 6: What are Embeddings -->
+        <div class="roadmap-row">
+
+            <!-- IZQUIERDA VACÍA (No hay proyecto) -->
+            <div class="col-project"></div>
+
+            <!-- COLUMNA CENTRAL: EL TRONCO -->
+                <div class="col-main">
+                <div class="main-node completed">
+                    <h2>6. What are Embeddings</h2>
+                </div>
+                <!-- La línea vertical que conecta con el siguiente -->
+                <div class="connector-line"></div>
+            </div>
+
+            <!-- COLUMNA DERECHA: SUBNODOS -->
+            <div class="col-subnodes">
+                <div class="subnode" onclick="openModal('semantic-search')">Semantic Search</div>
+                <div class="subnode" onclick="openModal('data-classification')">Data Classification</div>
+                <div class="subnode" onclick="openModal('recommendation-systems')">Recommendation Systems</div>
+                <div class="subnode" onclick="openModal('anomaly-detection')">Anomaly Detection</div>
+            </div>
+        </div>
+        
+        <!-- NODO 7: OpenAI Embeddings API-->
+        <div class="roadmap-row">
+
+            <!-- COLUMNA IZQUIERDA: EL PROYECTO -->
+            <div class="col-project">
+                <div class="project-card" onclick="openModal('semantic-embeddings-engine')">
+                    <strong>PROYECTO</strong>
+                    <span>Semantic embeddings engine</span>
+                </div>
+            </div>
+
+            <!-- COLUMNA CENTRAL: EL TRONCO -->
+                <div class="col-main">
+                <div class="main-node completed">
+                    <h2>7. Google Embeddings API</h2>
+                </div>
+                <!-- La línea vertical que conecta con el siguiente -->
+                <div class="connector-line"></div>
+            </div>
+
+            <!-- COLUMNA DERECHA: SUBNODOS -->
+            <div class="col-subnodes">
+                <div class="subnode" onclick="openModal('google-embedding-models')">Google Embedding Models</div>
+                <div class="subnode" onclick="openModal('7-pricing-considerations')">Pricing Considerations</div>
+            </div>
+        </div>
+
+        <!-- NODO 8: Open-Source Embeddings-->
+        <div class="roadmap-row">
+
+            <!-- COLUMNA IZQUIERDA: EL PROYECTO -->
+            <div class="col-project">
+                <div class="project-card" onclick="openModal('local-embeddings-tester')">
+                    <strong>PROYECTO</strong>
+                    <span>Local embeddings tester</span>
+                </div>
+            </div>
+
+            <!-- COLUMNA CENTRAL: EL TRONCO -->
+                <div class="col-main">
+                <div class="main-node completed">
+                    <h2>8. Open-Source Embeddings</h2>
+                </div>
+                <!-- La línea vertical que conecta con el siguiente -->
+                <div class="connector-line"></div>
+            </div>
+
+            <!-- COLUMNA DERECHA: SUBNODOS -->
+            <div class="col-subnodes">
+                <div class="subnode" onclick="openModal('sentence-transformers')">Sentence Transformers</div>
+                <div class="subnode" onclick="openModal('models-on-hugging-face')">Models on Hugging Face</div>
+            </div>
+        </div>
+
+        <!-- NODO 9: Vector Databases-->
+        <div class="roadmap-row">
+
+            <!-- COLUMNA IZQUIERDA: EL PROYECTO -->
+            <div class="col-project">
+                <div class="project-card" onclick="openModal('vector-db')">
+                    <strong>PROYECTO</strong>
+                    <span>vector dataBase</span>
+                </div>
+            </div>
+
+            <!-- COLUMNA CENTRAL: EL TRONCO -->
+                <div class="col-main">
+                <div class="main-node completed">
+                    <h2>9. Vector Databases</h2>
+                </div>
+                <!-- La línea vertical que conecta con el siguiente -->
+                <div class="connector-line"></div>
+            </div>
+
+            <!-- COLUMNA DERECHA: SUBNODOS -->
+            <div class="col-subnodes">
+                <div class="subnode" onclick="openModal('purpose-and-functionality')">Purpose and Functionality</div>
+                <div class="subnode" onclick="openModal('chroma')">Chroma</div>
+
+                <!-- GRUPO ENVOLVENTE (Implementing Vector Search) -->
+                <div class="subnode-group">
+                    <span class="group-title">Implementing Vector Search</span>
+                    
+                    <!-- Los hijos van adentro -->
+                    <div class="subnode" onclick="openModal('indexing-embeddings')">Indexing Embeddings</div>
+                    <div class="subnode" onclick="openModal('performing-similarity-search')">Performing Similarity Search</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NODO 10: What are RAGs?-->
+        <div class="roadmap-row">
+
+            <!-- COLUMNA IZQUIERDA: EL PROYECTO -->
+            <div class="col-project">
+                <div class="project-card" onclick="openModal('rag-system')">
+                    <strong>PROYECTO</strong>
+                    <span>RAG System</span>
+                </div>
+            </div>
+
+            <!-- COLUMNA CENTRAL: EL TRONCO -->
+                <div class="col-main">
+                <div class="main-node completed">
+                    <h2>10. What are RAGs?</h2>
+                </div>
+                <!-- La línea vertical que conecta con el siguiente -->
+                <div class="connector-line"></div>
+            </div>
+
+            <!-- COLUMNA DERECHA: SUBNODOS -->
+            <div class="col-subnodes">
+                <!-- GRUPO ENVOLVENTE (Implementing RAG) -->
+                <div class="subnode-group">
+                    <span class="group-title">Implementing RAG</span>
+                    
+                    <!-- Los hijos van adentro -->
+                    <div class="subnode" onclick="openModal('chunking')">Chunking</div>
+                    <div class="subnode" onclick="openModal('embedding')">Embedding</div>
+                    <div class="subnode" onclick="openModal('vector-database')">Vector Database</div>
+                    <div class="subnode" onclick="openModal('retrieval-process')">Retrieval Process</div>
+                    <div class="subnode" onclick="openModal('generation')">Generation</div>
+                </div>
+
+                <!-- GRUPO ENVOLVENTE (Ways of implementing RAG) -->
+                <div class="subnode-group">
+                    <span class="group-title">Ways of implementing RAG</span>
+                    
+                    <!-- Los hijos van adentro -->
+                    <div class="subnode" onclick="openModal('using-sdks-directly')">Using SDKs Directly</div>
+                    <div class="subnode" onclick="openModal('langchain')">Langchain</div>
+                    <div class="subnode" onclick="openModal('llama-index')">Llama Index</div>
+                    <div class="subnode" onclick="openModal('haystack')">Haystack</div>
+                    <div class="subnode" onclick="openModal('ragflow')">RAGFlow</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NODO 11: AI Agents-->
+        <div class="roadmap-row">
+
+            <!-- COLUMNA IZQUIERDA: EL PROYECTO -->
+            <div class="col-project">
+                <div class="project-card" onclick="openModal('11-ai-agent')">
+                    <strong>PROYECTO</strong>
+                    <span>AI AGENT</span>
+                </div>
+            </div>
+
+            <!-- COLUMNA CENTRAL: EL TRONCO -->
+                <div class="col-main">
+                <div class="main-node completed">
+                    <h2>11. Ai Agents</h2>
+                </div>
+                <!-- La línea vertical que conecta con el siguiente -->
+                <div class="connector-line"></div>
+            </div>
+
+            <!-- COLUMNA DERECHA: SUBNODOS -->
+            <div class="col-subnodes">
+                <div class="subnode" onclick="openModal('ai-agent')">AI Agent</div>
+                <div class="subnode" onclick="openModal('agents-usecases')">Agents Usecases</div>
+                <div class="subnode" onclick="openModal('react-prompting')">ReAct Prompting</div>
+
+                <!-- GRUPO ENVOLVENTE (Building Ai Agent) -->
+                <div class="subnode-group">
+                    <span class="group-title">Building Ai Agent</span>
+                    
+                    <!-- Los hijos van adentro -->
+                    <div class="subnode" onclick="openModal('manual-implementation')">Manual Implementation</div>
+                    <div class="subnode" onclick="openModal('google-functions-tools')">Google Functions / Tools</div>
+                    <div class="subnode" onclick="openModal('google-response-api')">Google Response API</div>
+                    <div class="subnode" onclick="openModal('vertex-ai')">Vertex AI</div>
+                    <div class="subnode" onclick="openModal('google-adk')">Google ADK</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NODO 12: Model Context Protocol (MCP) -->
+        <div class="roadmap-row">
+
+            <!-- IZQUIERDA VACÍA (No hay proyecto) -->
+            <div class="col-project">
+                <div class="project-card" onclick="openModal('12-mcp')">
+                    <strong>PROYECTO</strong>
+                    <span>Model Context Protocol (MCP)</span>
+                </div>
+            </div>            
+
+            <!-- COLUMNA CENTRAL: EL TRONCO -->
+                <div class="col-main">
+                <div class="main-node completed">
+                    <h2>12. Model Context Protocol (MCP)</h2>
+                </div>
+                <!-- La línea vertical que conecta con el siguiente -->
+                <div class="connector-line"></div>
+            </div>
+
+            <!-- COLUMNA DERECHA: SUBNODOS -->
+            <div class="col-subnodes">
+                <!-- GRUPO ENVOLVENTE (Core Components) -->
+                <div class="subnode-group">
+                    <span class="group-title">Core Components</span>
+                    
+                    <!-- Los hijos van adentro -->
+                    <div class="subnode" onclick="openModal('mcp-host')">MCP Host</div>
+                    <div class="subnode" onclick="openModal('mcp-client')">MCP Client</div>
+                    <div class="subnode" onclick="openModal('mcp-server')">MCP Server</div>
+                    <div class="subnode" onclick="openModal('data-layer')">Data Layer</div>
+                    <div class="subnode" onclick="openModal('transport-layer')">Transport Layer</div>
+                </div>
+
+                <!-- GRUPO ENVOLVENTE (Developing with MCP) -->
+                <div class="subnode-group">
+                    <span class="group-title">Developing with MCP</span>
+                    
+                    <!-- Los hijos van adentro -->
+                    <div class="subnode" onclick="openModal('building-an-mcp-server')">Building an MCP Server</div>
+                    <div class="subnode" onclick="openModal('building-an-mcp-client')">Building an MCP Client</div>
+                    <div class="subnode" onclick="openModal('connect-to-local-server')">Connect to Local Server</div>
+                    <div class="subnode" onclick="openModal('connect-to-remote-server')">Connect to Remote Server</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NODO 13: Multimodal AI-->
+        <div class="roadmap-row">
+
+            <!-- COLUMNA IZQUIERDA: EL PROYECTO -->
+            <div class="col-project">
+                <div class="project-card" onclick="openModal('multimodal-vision')">
+                    <strong>PROYECTO</strong>
+                    <span>Multimodal Vision</span>
+                </div>
+            </div>
+
+            <!-- COLUMNA CENTRAL: EL TRONCO -->
+                <div class="col-main">
+                <div class="main-node completed">
+                    <h2>13. Multimodal AI</h2>
+                </div>
+                <!-- La línea vertical que conecta con el siguiente -->
+                <div class="connector-line"></div>
+            </div>
+
+            <!-- COLUMNA DERECHA: SUBNODOS -->
+            <div class="col-subnodes">
+                <div class="subnode" onclick="openModal('multimodal-ai-usecases')">Multimodal AI Usecases</div>
+
+                <!-- GRUPO ENVOLVENTE (Multimodal AI Task) -->
+                <div class="subnode-group">
+                    <span class="group-title">Multimodal AI Task</span>
+                    
+                    <!-- Los hijos van adentro -->
+                    <div class="subnode" onclick="openModal('image-understanding')">Image Understanding</div>
+                    <div class="subnode" onclick="openModal('image-generation')">Image Generation</div>
+                    <div class="subnode" onclick="openModal('video-understanding')">Video Understanding</div>
+                    <div class="subnode" onclick="openModal('audio-processing')">Audio Processing</div>
+                    <div class="subnode" onclick="openModal('text-to-speech')">Text-to-Speech</div>
+                    <div class="subnode" onclick="openModal('speech-to-text')">Speech-to-Text</div>
+                </div>
+
+                <!-- GRUPO ENVOLVENTE (Implementing multimodal ai) -->
+                <div class="subnode-group">
+                    <span class="group-title">Implementing multimodal ai</span>
+                    
+                    <!-- Los hijos van adentro -->
+                    <div class="subnode" onclick="openModal('google-vision-api')">Google vision api</div>
+                    <div class="subnode" onclick="openModal('dall-e-api')">DALL-E API</div>
+                    <div class="subnode" onclick="openModal('whisper-api')">Whisper API</div>
+                    <div class="subnode" onclick="openModal('14-hugging-face-models')">Hugging Face Models</div>
+                    <div class="subnode" onclick="openModal('langchain-for-multimodal-apps')">LangChain for Multimodal Apps</div>
+                    <div class="subnode" onclick="openModal('llamaindex-for-multi-modal-apps')">LlamaIndex for Multi-modal Apps</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NODO 14: Development Tools-->
+        <div class="roadmap-row">
+
+            <!-- COLUMNA IZQUIERDA: EL PROYECTO -->
+            <div class="col-project">
+            </div>
+
+            <!-- COLUMNA CENTRAL: EL TRONCO -->
+                <div class="col-main">
+                <div class="main-node completed">
+                    <h2>14. Development Tools</h2>
+                </div>
+                <!-- La línea vertical que conecta con el siguiente -->
+                <div class="connector-line"></div>
+            </div>
+
+            <!-- COLUMNA DERECHA: SUBNODOS -->
+            <div class="col-subnodes">
+                <div class="subnode" onclick="openModal('ai-code-editors')">AI Code Editors</div>
+                <div class="subnode" onclick="openModal('code-completion-tools')">Code Completion Tools</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- EL MODAL (Ventana Única) -->
+    <div id="modal" class="modal-overlay" style="display:none;">
+        <div class="modal-content">
+            <button onclick="closeModal()">X</button>
+            <h2 id="modal-title">Título</h2>
+            <div id="modal-body">Contenido...</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

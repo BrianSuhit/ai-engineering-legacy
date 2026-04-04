@@ -1,0 +1,18 @@
+# Ignorar dependencias pesadas
+node_modules/
+.venv/
+venv/
+env/
+__pycache__/
+.git/
+
+# Ignorar builds y distros
+dist/
+build/
+
+# Ignorar archivos grandes o binarios
+*.pdf
+*.jpg
+*.png
+*.exe
+*.dll

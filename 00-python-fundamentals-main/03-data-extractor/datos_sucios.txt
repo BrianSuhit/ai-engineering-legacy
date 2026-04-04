@@ -1,0 +1,5 @@
+Hola, soy Brian. Mi correo personal es brian.suhit@gmail.com y mi teléfono es +54 11 1234-5678.
+Ayer vi un error en el servidor, contacten a soporte@empresa.tech o llamen al (011) 4444-5555.
+No envíen spam a ventas@falso.com.ar por favor.
+Visiten mi web en https://briansuhit-portfolio.netlify.app para más info.
+Fecha del reporte: 12/05/2024.
