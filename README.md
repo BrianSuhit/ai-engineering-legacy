@@ -3,7 +3,7 @@
 This repository contains my first projects, logic exercises, and the initial roadmap (v1) created before entering university.
 
 > [!NOTE]
-> These projects have been replaced by my new **Fundamentals of AI Engineering Guidebook**, which represents an improved, professional, and updated version of this path.
+> These projects have been replaced by my new [https://github.com/BrianSuhit/ai-engineering-path]**AI Engineering path**, which represents an improved, professional, and updated version of this path.
 
 ### Contents:
 - **01-python**: Python exercises.
